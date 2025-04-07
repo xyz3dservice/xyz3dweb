@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<!-- saved from url=(0219)file:///Users/riptide/Downloads/XYZprinting%E4%B8%89%E7%B7%AF%E5%9C%8B%E9%9A%9B%20_%203D%E5%88%97%E5%8D%B0%E6%A9%9F%20-%20%E5%85%A8%E6%96%B9%E4%BD%8D%E7%9A%843D%E5%88%97%E5%8D%B0%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-TW" prefix="og: http://ogp.me/ns#" class="webp"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!-- [Pkg][zh-TW] --><script async="" src="0813_files/jquery.validate.js"></script><script async="" src="0813_files/fbevents.js"></script><script src="0813_files/ytc.js" async=""></script><script type="text/javascript" async="" src="0813_files/hotjar-2067071.js"></script><script type="text/javascript" async="" src="0813_files/analytics.js"></script><script async="" src="0813_files/gtm.js"></script><script>
+/*------------------------------------------------------
+PAGE CFG
+------------------------------------------------------*/
+function NL_path(){var Url = window.location.pathname;	if (Url.indexOf("/") != -1) {var Sch = Url.split("/");return Sch.pop();}}
+switch(NL_path()) {
+    case 'contact-us':
+        contact_us();
+    break;
+    /* Product Name1 */
+    case 'da-vinci-pro':
+    case 'da-vinci-1-0-pro-3-in-1':
+    case 'da-vinci-jr-3in1':
+    case 'da-vinci-jr-1-0a':
+    case 'da-vinci-jr-1-0a-demo':
+    case 'da-vinci-jr-wifi-pro':
+    case 'da-vinci-super':
+    case 'partpro200-xTCS':
+    case 'da-vinci-color-mini':
+    case 'da-vinci-color-mini-':
+    case 'da-vinci-jr-pro-xe':
+    case 'da-vinci-jr-pro-x':
+        $('[data-toggle="popover"]').popover();
+        var LockPopover=0;
+        $(window).scroll(function(){
+            if(LockPopover==1){
+                $('[data-toggle="popover"]').popover('hide');
+                LockPopover=0;
+                console.log("LockPopover 0");
+            }
+        });
+        $('[data-toggle="popover"]').on('shown.bs.popover', function () {
+            if(LockPopover==0){
+                LockPopover=1;
+                console.log("LockPopover 1");
+            }
+        });
+    break;
+    /* Product Name1 */
+    /*case 'DEMO':
+        //CODE
+    break;*/
+    default: console.log("此頁無程式");
+}
+
+/*------------------------------------------------------
+Contact_Us PAGE
+------------------------------------------------------*/
+function contact_us(){
+    $("#contact-us").append('<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" type="text/css"/>');	
+    $.getScript("https://xyzofficialweb.blob.core.windows.net/xyz-events/vendors/jquery-validate/localization/messages_zh_TW.min.js",
+	function(){
+		$.validator.setDefaults({
+    	    highlight: function(element) {
+    	        $(element).closest(".form-group").addClass("has-error");
+    	    },
+    
+    	    unhighlight: function(element) {
+    	        $(element).closest(".form-group").removeClass("has-error");
+    	    },
+    
+    	    errorElement: "span",
+    
+    	    errorClass: "help-block",
+    
+    	    errorPlacement: function(error, element) {
+    	        if (element.parent(".input-group").length ||
+    	        	element.prop("type") === "checkbox" ||
+    	        	element.prop("type") === "radio" 
+    	        ){
+    	            //error.insertAfter(element.parent());
+    				//error.insertAfter(element);
+    				if(element[0].id=="Privacy2"){
+    				    error.insertAfter(".check_error2");
+    				}else{
+    				    error.insertAfter(".check_error");
+    				}
+    	        }else{
+    	            error.insertAfter(element);
+    	        }
+    	    }
+    	});	
+
+	    $("#Contact_Order_Form").validate({
+			rules: {
+				Name: { required: true },
+				Phone: { required: true, number: true },
+				Email: { required: true, email: true },
+				Country: { required: true },
+				Subject: { required: true },										
+				Message: { required: true, minlength:10 },
+				Privacy: "required"
+			},
+
+			submitHandler: function (form) {				    
+				$.ajax({
+					method: "POST",
+					dataType: "html",
+					url: "https://event.xyzprinting.com/Tp/SYSMAIL/",
+					data: {
+						'STrigger':'sales-support_TW',
+						'DATA': '<h3>訂購、業務支援</h3>'+
+						        '<b>姓名 : </b>'+ $(".form2-name").val() + 
+						        '<br><b>電話 / 行動電話 : </b>'+ $(".form2-phone").val() +
+						        '<br><b>Email : </b>'+ $(".form2-email").val() +
+						        '<br><b>國家 : </b>'+ $(".form2-country").val() +
+						        '<br><b>公司名稱 : </b>'+ $(".form2-company_name").val() +
+							    '<br><b>產業類別 : </b>'+ $(".form2-type_of_industry").val() +			
+						        '<br><b>主旨 : </b>'+ $(".form2-subject").val() +
+						        '<br><b>訊息 : </b>'+ $(".form2-message").val() +
+						        '<br><b>您從何處獲得XYZprinting的資訊? : </b>'+ $('input:checkbox:checked[name="Get_Information2"]').map(function(){return $(this).val();}).get()
+					},
+					error: function(){//送出失敗
+						$('#form-feedback').modal('show');
+						$(".feedback-icon").addClass("fa-frown");
+						$(".ing").html("<h4>喔，不，發生了一些錯誤。</h4><span>請關閉視窗後再行重試。</span>");
+					},
+					success: function(Val){
+						if(Val==6){//失敗
+							// console.log("SERVER ERR");
+							$('#form-feedback').modal('show');
+							$(".feedback-icon").addClass("fa-frown");
+							$(".ing").html("<h4>喔，不，發生了一些錯誤。</h4><span>請關閉視窗後再行重試。</span>");
+						}else{//成功
+							$('#form-feedback').modal('show');
+							$(".feedback-icon").addClass("fa-check-circle");
+							$(".ing").html("<h4>謝謝您</h4><span>您的訊息已成功發送。</span>");
+							$("#Contact_Order_Form").find(":text,textarea,input,checkbox").each(function() {
+							    $(this).val("").prop("checked",false);
+							});
+						}
+						return false;
+					}
+				});
+				return false; // required to block normal submit since you used ajax
+			},
+
+			messages: {
+				Privacy: "若要繼續，您必須同意 XYZprinting 的隱私權聲明。"
+			}
+		});
+
+	    $("#Contact_Partner_Form").validate({
+		rules: {
+			Name: { required: true },
+			Phone: { required: true, number: true },
+			Email: { required: true, email: true },
+			Country: { required: true },
+			Company_Name: { required: true },
+			Nature_of_Business: { required: true },
+			Subject: { required: true },
+			Message: { required: true, minlength:10 },
+			Privacy: "required"
+		},
+
+		submitHandler: function (form) {				    
+			$.ajax({
+				method: "POST",
+				dataType: "html",
+				url: "https://event.xyzprinting.com/Tp/SYSMAIL/",
+				data: {
+					'STrigger':'become-our-partner_TW',
+					'DATA': '<h3>成為我們的夥伴</h3>'+
+					        '<b>姓名 : </b>'+ $(".form3-name").val() + 
+					        '<br><b>電話 / 行動電話 : </b>'+ $(".form3-phone").val() +
+					        '<br><b>Email : </b>'+ $(".form3-email").val() +
+					        '<br><b>國家 : </b>'+ $(".form3-country").val() +
+					        '<br><b>公司名稱 : </b>'+ $(".form3-company_name").val() +
+					        '<br><b>商業模式 : </b>'+ $(".form3-nature_of_business").val() +
+					        '<br><b>主旨 : </b>'+ $(".form3-subject").val() +
+					        '<br><b>訊息 : </b>'+ $(".form3-message").val() +
+					        '<br><b>您從何處獲得XYZprinting的資訊? : </b>'+ $('input:checkbox:checked[name="Get_Information3"]').map(function(){return $(this).val();}).get()
+				},
+				error: function(){//送出失敗
+					$('#form-feedback').modal('show');
+					$(".feedback-icon").addClass("fa-frown");
+					$(".ing").html("<h4>喔，不，發生了一些錯誤。</h4><span>請關閉視窗後再行重試。</span>");
+				},
+				success: function(Val){
+					if(Val==6){//失敗
+						// console.log("SERVER ERR");
+						$('#form-feedback').modal('show');
+						$(".feedback-icon").addClass("fa-frown");
+						$(".ing").html("<h4>喔，不，發生了一些錯誤。</h4><span>請關閉視窗後再行重試。</span>");
+					}else{//成功
+						$('#form-feedback').modal('show');
+						$(".feedback-icon").addClass("fa-check-circle");
+						$(".ing").html("<h4>謝謝您</h4><span>您的訊息已成功發送。</span>");
+						$("#Contact_Partner_Form").find(":text,textarea,input,checkbox").each(function() {
+						    $(this).val("").prop("checked",false);
+						});
+					}
+					return false;
+				}
+			});
+			return false; // required to block normal submit since you used ajax
+		},
+
+		messages: {
+			Privacy: "若要繼續，您必須同意 XYZprinting 的隱私權聲明。"
+		}
+	});
+	});
+}
+
+/*------------------------------------------------------
+Product PAGE
+------------------------------------------------------*/
+/* Product Name1 */
+/* Product Name2 */
+
+</script><script type="text/javascript" src="0813_files/webJS-JZ.js"></script><script type="text/javascript" src="0813_files/all.js"></script><!-- [CSS] --><style type="text/css">
+  .dmt-control-eduComTitle{display:inline !important;}
+</style><style>
+/*Home NEWS 顯示*/
+#dmt-control-latestnews{
+display: block;
+}
+
+/*All Product / All Material 的FILTER區塊中下方的按鈕要顯示___維護人Lise*/
+#dmt-control-allMaterial,
+#dmt-control-allProduct {
+display: block;
+}
+
+/* Stoty 頁籤隱藏 */
+.dmt-control-eduComTitle{
+display: none;
+}
+</style><style>
+#user-story .figure, #user-story .figure .figure-img { width: 100%; }
+</style>
+<style>
+.table_component {
+    overflow: auto;
+    width: 100%;
+}
+
+.table_component table {
+    border: 1px solid #dededf;
+    height: 100%;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 1px;
+    text-align: left;
+}
+
+.table_component caption {
+    caption-side: top;
+    text-align: left;
+}
+
+.table_component th {
+    border: 1px solid #dededf;
+    background-color: #eceff1;
+    color: #000000;
+    padding: 5px;
+}
+
+.table_component td {
+    border: 1px solid #dededf;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 5px;
+}
+</style>
+<link rel="stylesheet" href="0813_files/style-JZ.css"><link rel="stylesheet" href="0813_files/style-NL.css">
+
+<link rel="stylesheet" href="0813_files/style.min.css"><link rel="stylesheet" href="0813_files/20190423.css"><link href="0813_files/thirdp.css" rel="stylesheet" type="text/css"><link href="0813_files/softwareall.css" rel="stylesheet"><script src="0813_files/index.js"></script><link rel="stylesheet" href="0813_files/bootstrap.min.css"><link rel="stylesheet" href="0813_files/freelancer.css"><link rel="stylesheet" href="0813_files/suite201808.css"><link rel="stylesheet" href="0813_files/all.css"><!-- [Seo][zh-TW]home --><title>XYZprinting三緯國際 | 3D列印機 - 全方位的3D列印解決方案</title><meta property="og:title" content="XYZprinting三緯國際 | 3D列印機 - 全方位的3D列印解決方案"><meta name="description" content="XYZprinting三緯國際專注於開發高品質、經濟實惠、且易於使用的3D列印機，提供專業諮詢、教育訓練、代印、售後服務。"><meta property="og:description" content="XYZprinting三緯國際專注於開發高品質、經濟實惠、且易於使用的3D列印機，提供專業諮詢、教育訓練、代印、售後服務。"><meta name="keywords" content="3D列印,3D列印機,家用3D列印,家用,增材製造,積層製造,快速原型製作,原型,原型製作,工業品質,碳纖維,碳纖維PLA,金屬,金屬PLA,DLP,DLP技術,digital light processing,SL ,SL技術,SLA,SLA技術,Stereolithography,FFF,FFF技術,全彩,3D掃描,彩色FFF,FDM,UV固化,熔絲製造,熱熔融積層,熔絲製造技術,熱熔解積層法,數位化生產,生產工具,醫療設備,樹脂,線材, XYZprinting,三緯國際,XYZprinting三緯國際,醫療器材,短期生產,零件,電子連接器,航空航太,無人機,一體成型設計,STL,OBJ,3MF,服務站,專業人士使用的專業級零件,專業級3D列印解決方案,3D列印技術,SLS 3D代印服務,代印服務,活用案例,客戶案例,列印材料,軟體,支援,聯絡我們,光敏樹脂,DLP樹脂,SL樹脂"><meta property="og:type" content="article"><meta property="og:image" content="https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/img_XYZprinting_logo_200x200.png"><meta property="og:site_name" content="XYZprinting | da Vinci 3D Printers - MAKE 3D POSSIBLE"><meta property="og:url" content="https://www.xyzprinting.com/home"><meta property="og:locale" content="zh-TW"><!-- [Seo END] -->
+    <!--<base href="/zh-TW">--><!--<base href=".">--><base href="">
+    
+    <meta name="fragment" content="!">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, max-age=0, must-revalidate">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <link rel="icon" type="image/x-icon" href="https://twportal.blob.core.windows.net/images-xyzprinting/b2b/favicon.ico">
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <!-- Start lazyload css style -->
+    <link rel="stylesheet" href="0813_files/css" as="style" onload="this.onload = null; this.rel=&#39;stylesheet&#39;">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"></noscript>
+    <link rel="stylesheet" href="0813_files/css(1)" as="style" onload="this.onload = null; this.rel=&#39;stylesheet&#39;">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap"></noscript>
+    <link rel="stylesheet" href="0813_files/css2" as="style" onload="this.onload = null; this.rel=&#39;stylesheet&#39;">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Open+Sans&display=swap"></noscript>
+    <link rel="stylesheet" href="0813_files/threesixty.css" as="style" onload="this.onload = null; this.rel=&#39;stylesheet&#39;">
+    <noscript><link rel="stylesheet" href="https://www.xyzprinting.com/assets/stylesheets/threesixty.css"></noscript>
+    <link rel="stylesheet" href="0813_files/bootstrap(1).min.css" as="style" onload="this.onload = null; this.rel=&#39;stylesheet&#39;">
+    <noscript><link rel="stylesheet" href="https://www.xyzprinting.com/assets/stylesheets/bootstrap.min.css"></noscript>
+    <!-- End lazyload css style -->
+    <!-- Google Tag Manager -->
+    <script async="" src="0813_files/jquery(1).validate.js"></script><script async="" src="0813_files/fbevents(1).js"></script><script src="0813_files/ytc(1).js" async=""></script><script type="text/javascript" async="" src="0813_files/hotjar-2067071(1).js"></script><script type="text/javascript" async="" src="0813_files/hotjar-1309538.js"></script><script type="text/javascript" async="" src="0813_files/js.html"></script><script type="text/javascript" async="" src="0813_files/hotjar-2067071(1).js"></script><script type="text/javascript" async="" src="0813_files/analytics(1).js"></script><script async="" src="0813_files/gtm(1).js"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NZRGK7G');</script>
+    <!-- End Google Tag Manager -->
+  <link rel="stylesheet" href="0813_files/styles.210b3a4c71791de3c301.css"><link href="https://xyzofficialweb.blob.core.windows.net/xyz-v3/stylesheets/pre-style.css?R=0.4729779044968614"><link href="https://xyzofficialweb.blob.core.windows.net/xyz-v3/stylesheets/bc_all.css?R=0.9892096299291162"><script charset="utf-8" src="0813_files/24.cb25562a09baff32db16.js"></script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","url":"https://www.xyzprinting.com/","logo":"https://twportal.blob.core.windows.net/images-xyzprinting/hf/img_web2.0_new_logo.png"}</script><script async="" src="0813_files/modules.8da33a8f469c3b5ffcec.js" charset="utf-8"></script><style></style><style>#globalNav[_ngcontent-bjj-c2]{position:relative;box-shadow:0 2px 4px 0 rgba(212,212,212,.5);z-index:15}#globalNav[_ngcontent-bjj-c2]   .container-nv-main[_ngcontent-bjj-c2]{padding:0 90px}#globalNav[_ngcontent-bjj-c2]   .container-logo[_ngcontent-bjj-c2]{padding:1px 0 16px;margin-right:20px}#globalNav[_ngcontent-bjj-c2]   .container-logo[_ngcontent-bjj-c2]   .logo[_ngcontent-bjj-c2]{width:150px;height:55px}#globalNav[_ngcontent-bjj-c2]   .service-gn-list[_ngcontent-bjj-c2]{padding:13px 90px}#globalNav[_ngcontent-bjj-c2]   .service-gn-list[_ngcontent-bjj-c2]   .sv-gn-item[_ngcontent-bjj-c2]{padding:0 18px;border-right:1px solid #828282;color:#828282;font-size:14px;line-height:22px}#globalNav[_ngcontent-bjj-c2]   .service-gn-list[_ngcontent-bjj-c2]   .sv-gn-item[_ngcontent-bjj-c2]:last-child{border-right:0}#globalNav[_ngcontent-bjj-c2]   .container-nv-main[_ngcontent-bjj-c2]   .gn-list[_ngcontent-bjj-c2]{margin-top:8px}#globalNav[_ngcontent-bjj-c2]   .container-nv-main[_ngcontent-bjj-c2]   .gn-list[_ngcontent-bjj-c2]   .main-gn-item[_ngcontent-bjj-c2]{font-size:16px;color:#333;line-height:24px;font-weight:600}#globalNav[_ngcontent-bjj-c2]   .container-nv-main[_ngcontent-bjj-c2]   .gn-list[_ngcontent-bjj-c2]   .main-gn-item.choose[_ngcontent-bjj-c2]{padding:20px 30px 17px;border-bottom:3px solid #cf1e1e}#globalNav[_ngcontent-bjj-c2]   #dropdownPanel[_ngcontent-bjj-c2]{box-shadow:0 2px 4px 0 rgba(212,212,212,.5);background-color:#fff;z-index:14}#globalNav[_ngcontent-bjj-c2]   #dropdownPanel.submenu-vertical[_ngcontent-bjj-c2]{transition:height .3s}#globalNav[_ngcontent-bjj-c2]   #dropdownPanel.submenu-vertical.active[_ngcontent-bjj-c2]{box-shadow:0 2px 4px 4px rgba(212,212,212,.5);height:350px;transition:height .3s}#globalNav[_ngcontent-bjj-c2]   #dropdownPanel[_ngcontent-bjj-c2]   .container-pd-category[_ngcontent-bjj-c2]{padding-top:33px}#globalNav[_ngcontent-bjj-c2]   #dropdownPanel[_ngcontent-bjj-c2]   .container-btn[_ngcontent-bjj-c2]{padding:34px 0;position:absolute;text-align:center;left:0;right:0}#globalNav[_ngcontent-bjj-c2]   #dropdownPanel[_ngcontent-bjj-c2]   .block-pd-category[_ngcontent-bjj-c2]{position:relative;padding:0 60px 0 30px;text-align:left}#globalNav[_ngcontent-bjj-c2]   #dropdownPanel[_ngcontent-bjj-c2]   .block-pd-category[_ngcontent-bjj-c2]   .title-category[_ngcontent-bjj-c2]{position:relative;margin-bottom:10px;font-size:16px;font-weight:700;color:#333}#globalNav[_ngcontent-bjj-c2]   #dropdownPanel[_ngcontent-bjj-c2]   .block-pd-category[_ngcontent-bjj-c2]   .title-category[_ngcontent-bjj-c2]:after{content:"";display:inline-block;vertical-align:middle;width:10px;height:10px;position:absolute;-ms-transform:translateY(-50%);transform:translateY(-50%);top:50%;right:-20px;background:url(https://twportal.blob.core.windows.net/images-xyzprinting/images-xyz3.0/general/Icon-function.svg) 0 -30px/auto 110px no-repeat}#globalNav[_ngcontent-bjj-c2]   #dropdownPanel[_ngcontent-bjj-c2]   .block-pd-category[_ngcontent-bjj-c2]   .title-series[_ngcontent-bjj-c2]{margin-bottom:10px;font-size:16px;color:#333}#globalNav[_ngcontent-bjj-c2]   #dropdownPanel[_ngcontent-bjj-c2]   .block-pd-category[_ngcontent-bjj-c2]   .decorate-line-right-border[_ngcontent-bjj-c2]{position:absolute;height:130px;width:1px;top:0;right:0;background-color:#e9e9e9}#globalNav[_ngcontent-bjj-c2]   #dropdownPanel[_ngcontent-bjj-c2]   .block-pd-category[_ngcontent-bjj-c2]   .decorate-line-right-border.last-item[_ngcontent-bjj-c2]{display:none}@media screen and (max-width:767px){#globalNav[_ngcontent-bjj-c2]   #productPanel[_ngcontent-bjj-c2], #globalNav[_ngcontent-bjj-c2]   .container-nv-main[_ngcontent-bjj-c2], #globalNav[_ngcontent-bjj-c2]   .container-nv-plateform[_ngcontent-bjj-c2]{display:none}}</style><style>#footer[_ngcontent-bjj-c3]{background-color:#e9e9e9;font-family:Roboto,Arial,Helvetica,sans-serif}#footer[_ngcontent-bjj-c3]   .block-footer-content[_ngcontent-bjj-c3]{padding:10px 80px}#footer[_ngcontent-bjj-c3]   .logo[_ngcontent-bjj-c3]{margin:50px 45px 20px 20px}#footer[_ngcontent-bjj-c3]   .logo[_ngcontent-bjj-c3]:lang(es-ES), #footer[_ngcontent-bjj-c3]   .logo[_ngcontent-bjj-c3]:lang(ja-JP), #footer[_ngcontent-bjj-c3]   .logo[_ngcontent-bjj-c3]:lang(nl-NL), #footer[_ngcontent-bjj-c3]   .logo[_ngcontent-bjj-c3]:lang(pt-PT), #footer[_ngcontent-bjj-c3]   .logo[_ngcontent-bjj-c3]:lang(ru-RU){width:180px;margin:50px 30px 20px 20px}#footer[_ngcontent-bjj-c3]   .gn-sitemap[_ngcontent-bjj-c3]{padding:10px;color:#333}#footer[_ngcontent-bjj-c3]   .gn-sitemap[_ngcontent-bjj-c3]   .gn-sitemap-caption[_ngcontent-bjj-c3]{margin-bottom:20px;font-size:16px;font-weight:700}#footer[_ngcontent-bjj-c3]   .gn-sitemap[_ngcontent-bjj-c3]   .gn-sitemap-caption-mobile[_ngcontent-bjj-c3]{display:none}#footer[_ngcontent-bjj-c3]   .gn-sitemap[_ngcontent-bjj-c3]   .gn-sitemap-item[_ngcontent-bjj-c3]{margin-bottom:10px;font-size:14px;font-weight:400}#footer[_ngcontent-bjj-c3]   .block-socialMedia[_ngcontent-bjj-c3]{float:right}#footer[_ngcontent-bjj-c3]   .block-socialMedia[_ngcontent-bjj-c3]   div[_ngcontent-bjj-c3]{margin:7px}#footer[_ngcontent-bjj-c3]   .block-socialMedia[_ngcontent-bjj-c3]   .icon-socialMedia[_ngcontent-bjj-c3]{width:35px;height:35px}#footer[_ngcontent-bjj-c3]   .block-socialMedia[_ngcontent-bjj-c3]   .icon-socialMedia[_ngcontent-bjj-c3]:hover{opacity:.8}#footer[_ngcontent-bjj-c3]   .block-socialMedia[_ngcontent-bjj-c3]   figure.fb[_ngcontent-bjj-c3]{background:url(https://twportal.blob.core.windows.net/images-xyzprinting/images-xyz3.0/general/Icon-social.svg) 0 0/cover no-repeat}#footer[_ngcontent-bjj-c3]   .block-socialMedia[_ngcontent-bjj-c3]   figure.ig[_ngcontent-bjj-c3]{background:url(https://twportal.blob.core.windows.net/images-xyzprinting/images-xyz3.0/general/Icon-social.svg) 0 -35px/cover no-repeat}#footer[_ngcontent-bjj-c3]   .block-socialMedia[_ngcontent-bjj-c3]   figure.twitter[_ngcontent-bjj-c3]{background:url(https://twportal.blob.core.windows.net/images-xyzprinting/images-xyz3.0/general/Icon-social.svg) 0 -70px/cover no-repeat}#footer[_ngcontent-bjj-c3]   .block-socialMedia[_ngcontent-bjj-c3]   figure.linkedin[_ngcontent-bjj-c3]{background:url(https://twportal.blob.core.windows.net/images-xyzprinting/images-xyz3.0/general/Icon-social.svg) 0 -105px/cover no-repeat}#footer[_ngcontent-bjj-c3]   .block-socialMedia[_ngcontent-bjj-c3]   figure.youtube[_ngcontent-bjj-c3]{background:url(https://twportal.blob.core.windows.net/images-xyzprinting/images-xyz3.0/general/Icon-social.svg) 0 -140px/cover no-repeat}#footer[_ngcontent-bjj-c3]   .block-socialMedia[_ngcontent-bjj-c3]   figure.wechat[_ngcontent-bjj-c3]{background:url(https://twportal.blob.core.windows.net/images-xyzprinting/images-xyz3.0/general/Icon-social.svg) 0 -175px/cover no-repeat}#footer[_ngcontent-bjj-c3]   .block-socialMedia[_ngcontent-bjj-c3]   figure.weibo_1[_ngcontent-bjj-c3]{background:url(https://twportal.blob.core.windows.net/images-xyzprinting/images-xyz3.0/general/Icon-social.svg) 0 -210px/cover no-repeat}#footer[_ngcontent-bjj-c3]   .block-socialMedia[_ngcontent-bjj-c3]   figure.weibo_2[_ngcontent-bjj-c3]{background:url(https://twportal.blob.core.windows.net/images-xyzprinting/images-xyz3.0/general/Icon-social.svg) 0 -245px/cover no-repeat}#footer[_ngcontent-bjj-c3]   .block-socialMedia[_ngcontent-bjj-c3]   figure.naver[_ngcontent-bjj-c3]{background:url(https://twportal.blob.core.windows.net/images-xyzprinting/images-xyz3.0/general/Icon-social.svg) 0 -280px/cover no-repeat}#footer[_ngcontent-bjj-c3]   .block-socialMedia[_ngcontent-bjj-c3]   figure.line[_ngcontent-bjj-c3]{background:url(https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/icon/Icon-social.svg) 0 -315px/cover no-repeat}#footer[_ngcontent-bjj-c3]   #block-policy[_ngcontent-bjj-c3]{font-size:14px;background-color:#fff;color:#828282}#footer[_ngcontent-bjj-c3]   #block-policy[_ngcontent-bjj-c3]   .block-footer-content[_ngcontent-bjj-c3]{display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between;-ms-flex-align:center;align-items:center}#footer[_ngcontent-bjj-c3]   #block-policy[_ngcontent-bjj-c3]   .block-footer-content[_ngcontent-bjj-c3]   .fn_lang[_ngcontent-bjj-c3]{text-align:right;line-height:1.5}#footer[_ngcontent-bjj-c3]   #block-policy[_ngcontent-bjj-c3]   .ft-static-link[_ngcontent-bjj-c3]{padding:0 15px;border-right:1px solid #828282}#footer[_ngcontent-bjj-c3]   #block-policy[_ngcontent-bjj-c3]   .ft-static-link[_ngcontent-bjj-c3]:last-child{border-right:none}#footer[_ngcontent-bjj-c3]   #block-policy[_ngcontent-bjj-c3]   .btn-locale[_ngcontent-bjj-c3]{margin-right:20px}#footer[_ngcontent-bjj-c3]   #block-policy[_ngcontent-bjj-c3]   .btn-locale[_ngcontent-bjj-c3]:before{content:"";display:inline-block;vertical-align:middle;width:20px;height:20px;position:absolute;-ms-transform:translateY(-50%);transform:translateY(-50%);top:50%;left:-25px;background:url(https://twportal.blob.core.windows.net/images-xyzprinting/images-xyz3.0/general/Icon-function.svg) 0 -180px/auto 220px no-repeat}@media screen and (min-width:768px) and (max-width:1068px){#block-policy[_ngcontent-bjj-c3]   .block-footer-content[_ngcontent-bjj-c3]{-ms-flex-direction:column;flex-direction:column}#block-policy[_ngcontent-bjj-c3]   .block-footer-content[_ngcontent-bjj-c3]   .fn_lang[_ngcontent-bjj-c3]{margin-top:.5rem;text-align:center!important}}@media screen and (max-width:767px){#footer[_ngcontent-bjj-c3]   .block-sitemap[_ngcontent-bjj-c3], #footer[_ngcontent-bjj-c3]   .block-socialMedia[_ngcontent-bjj-c3]{margin-top:0}#footer[_ngcontent-bjj-c3]   .block-footer-content[_ngcontent-bjj-c3]{padding:10px}#footer[_ngcontent-bjj-c3]   .gn-sitemap[_ngcontent-bjj-c3]{display:block;width:100%;float:none;border-bottom:1px solid #fff}#footer[_ngcontent-bjj-c3]   .gn-sitemap[_ngcontent-bjj-c3]   label[_ngcontent-bjj-c3]{display:block}#footer[_ngcontent-bjj-c3]   .gn-sitemap[_ngcontent-bjj-c3]   ul[_ngcontent-bjj-c3]{position:absolute;height:0;visibility:hidden;-ms-transform:translateY(-100px);transform:translateY(-100px);opacity:0;transition:transform .3s}#footer[_ngcontent-bjj-c3]   .gn-sitemap[_ngcontent-bjj-c3]   ul.active[_ngcontent-bjj-c3]{position:static;height:auto;visibility:visible;-ms-transform:none;transform:none;opacity:1;transition:all .3s;z-index:1}#footer[_ngcontent-bjj-c3]   .gn-sitemap[_ngcontent-bjj-c3]   .gn-sitemap-caption-mobile[_ngcontent-bjj-c3]{display:block}#footer[_ngcontent-bjj-c3]   .gn-sitemap[_ngcontent-bjj-c3]   .gn-sitemap-caption[_ngcontent-bjj-c3]{position:relative;margin:0;padding:20px 0;cursor:pointer}#footer[_ngcontent-bjj-c3]   .gn-sitemap[_ngcontent-bjj-c3]   .gn-sitemap-caption[_ngcontent-bjj-c3]:after{content:"";display:inline-block;vertical-align:middle;width:20px;height:20px;position:absolute;right:20px;top:18px;background:url(https://twportal.blob.core.windows.net/images-xyzprinting/hf/icon_header-footer.svg) 0 -160px/cover no-repeat}#footer[_ngcontent-bjj-c3]   .gn-sitemap[_ngcontent-bjj-c3]   .gn-sitemap-item[_ngcontent-bjj-c3]{padding:18px 10px;margin:0}#footer[_ngcontent-bjj-c3]   .container-socialMedia[_ngcontent-bjj-c3]{text-align:center}#footer[_ngcontent-bjj-c3]   .container-socialMedia[_ngcontent-bjj-c3]   .block-socialMedia[_ngcontent-bjj-c3]{float:none;display:inline-block}#footer[_ngcontent-bjj-c3]   .container-socialMedia[_ngcontent-bjj-c3]   .block-socialMedia[_ngcontent-bjj-c3]   div[_ngcontent-bjj-c3]{margin:10px}#footer[_ngcontent-bjj-c3]   #block-policy[_ngcontent-bjj-c3]{padding:50px 25px;font-size:12px}#footer[_ngcontent-bjj-c3]   #block-policy[_ngcontent-bjj-c3]   .block-footer-content[_ngcontent-bjj-c3]{-ms-flex-direction:column;flex-direction:column}#footer[_ngcontent-bjj-c3]   #block-policy[_ngcontent-bjj-c3]   .block-footer-content[_ngcontent-bjj-c3]   .fn_lang[_ngcontent-bjj-c3]{text-align:center}#footer[_ngcontent-bjj-c3]   #block-policy[_ngcontent-bjj-c3]   .ft-static-link[_ngcontent-bjj-c3]{padding:0 15px;margin-bottom:10px}#footer[_ngcontent-bjj-c3]   #block-policy[_ngcontent-bjj-c3]   div[_ngcontent-bjj-c3]{float:none}#footer[_ngcontent-bjj-c3]   #block-policy[_ngcontent-bjj-c3]   .layout-inlineB-to-block[_ngcontent-bjj-c3]{margin-bottom:10px}#footer[_ngcontent-bjj-c3]   #block-policy[_ngcontent-bjj-c3]   .btn-locale[_ngcontent-bjj-c3]{padding:20px 10px 20px 50px}#footer[_ngcontent-bjj-c3]   #block-policy[_ngcontent-bjj-c3]   .btn-locale[_ngcontent-bjj-c3]:before{left:20px}}</style><style>.gn-header--mobile[_ngcontent-bjj-c6]{display:none}.gn-list-mobile[_ngcontent-bjj-c6]{display:none;position:absolute;left:-100%;overflow:hidden;z-index:14}@media screen and (max-width:767px){#stickyContainer.sticky[_ngcontent-bjj-c6]{position:fixed;width:100%;z-index:102;top:0}.gn-header--mobile[_ngcontent-bjj-c6]{display:block;height:50px;background-color:#fff}.gn-header--mobile[_ngcontent-bjj-c6]   .gn-header-item-mobile[_ngcontent-bjj-c6]{position:absolute}.gn-header--mobile[_ngcontent-bjj-c6]   .gn-header-item-mobile.gn-header-item-logo[_ngcontent-bjj-c6]{width:110px;height:30px}.gn-header--mobile[_ngcontent-bjj-c6]   .gn-header-item-mobile.gn-header-item-menu[_ngcontent-bjj-c6]{left:0;padding:15px}.gn-header--mobile[_ngcontent-bjj-c6]   .gn-header-item-mobile.gn-header-item-menu.icon-menu--on[_ngcontent-bjj-c6]{background-color:#fff}.gn-header--mobile[_ngcontent-bjj-c6]   .gn-header-item-mobile.gn-header-item-menu.icon-menu--on[_ngcontent-bjj-c6]   .icon-menu[_ngcontent-bjj-c6]{background:url(https://twportal.blob.core.windows.net/images-xyzprinting/images-xyz3.0/general/Icon-function.svg) 0 -160px/cover no-repeat}.gn-header--mobile[_ngcontent-bjj-c6]   .gn-header-item-mobile.gn-header-item-search[_ngcontent-bjj-c6]{right:0;padding:15px}.gn-header--mobile[_ngcontent-bjj-c6]   .gn-header-item-mobile[_ngcontent-bjj-c6]   .icon-menu[_ngcontent-bjj-c6]{width:20px;height:20px;background:url(https://twportal.blob.core.windows.net/images-xyzprinting/images-xyz3.0/general/Icon-function.svg) 0 -140px/cover no-repeat}.gn-header--mobile[_ngcontent-bjj-c6]   .gn-header-item-mobile[_ngcontent-bjj-c6]   .icon-search[_ngcontent-bjj-c6]{width:20px;height:20px;background:url(https://twportal.blob.core.windows.net/images-xyzprinting/hf/ic_main.svg) 0 -20px/cover no-repeat}.gn-list-mobile[_ngcontent-bjj-c6]{display:block;transition:left .3s;z-index:103;background:#fff}.gn-list-mobile.active[_ngcontent-bjj-c6]{position:fixed;left:0;box-shadow:0 -2px 4px 0 rgba(212,212,212,.5);transition:left .3s;overflow-y:scroll}.gn-list-mobile[_ngcontent-bjj-c6]   #platformListGroup[_ngcontent-bjj-c6]{border-top:1px solid #e9e9e9;padding-bottom:.75rem}.gn-list-mobile[_ngcontent-bjj-c6]   .gn-item[_ngcontent-bjj-c6]{position:relative;background-color:#fff;color:#333;cursor:pointer}.gn-list-mobile[_ngcontent-bjj-c6]   .gn-item[_ngcontent-bjj-c6]   .item-title[_ngcontent-bjj-c6], .gn-list-mobile[_ngcontent-bjj-c6]   .gn-item[_ngcontent-bjj-c6]   .nonInnerLinkBlock[_ngcontent-bjj-c6]{padding:25px 30px}.gn-list-mobile[_ngcontent-bjj-c6]   .gn-item.gn-item-drop[_ngcontent-bjj-c6]{position:relative}.gn-list-mobile[_ngcontent-bjj-c6]   .gn-item.gn-item-drop[_ngcontent-bjj-c6]:after{content:"";display:inline-block;vertical-align:middle;width:14px;height:14px;position:absolute;-ms-transform:rotate(90deg);transform:rotate(90deg);right:30px;top:26px;background:url(https://twportal.blob.core.windows.net/images-xyzprinting/images-xyz3.0/general/Icon-function.svg) 0 -42px/cover no-repeat;transition:transform .3s}.gn-list-mobile[_ngcontent-bjj-c6]   .gn-item.gn-item-drop.isDrop[_ngcontent-bjj-c6]:after{-ms-transform:rotate(270deg);transform:rotate(270deg);transition:transform .3s}.gn-list-mobile[_ngcontent-bjj-c6]   .gn-item.gn-item-drop[_ngcontent-bjj-c6]   .submenu-vertical[_ngcontent-bjj-c6]{background-color:#f7f7f7}.gn-list-mobile[_ngcontent-bjj-c6]   .gn-item.gn-item-drop[_ngcontent-bjj-c6]   .submenu-vertical[_ngcontent-bjj-c6] > ul[_ngcontent-bjj-c6]{position:absolute;padding:12px 20px;height:0;visibility:hidden;-ms-transform:translateY(-100px);transform:translateY(-100px);opacity:0;transition:transform .3s}.gn-list-mobile[_ngcontent-bjj-c6]   .gn-item.gn-item-drop[_ngcontent-bjj-c6]   .submenu-vertical[_ngcontent-bjj-c6] > ul[_ngcontent-bjj-c6]   li[_ngcontent-bjj-c6]   .item-name[_ngcontent-bjj-c6]{display:block;position:relative;padding:15px 20px;color:#333;font-size:16px;font-weight:700}.gn-list-mobile[_ngcontent-bjj-c6]   .gn-item.gn-item-drop[_ngcontent-bjj-c6]   .submenu-vertical[_ngcontent-bjj-c6] > ul[_ngcontent-bjj-c6]   li[_ngcontent-bjj-c6]   .item-name[_ngcontent-bjj-c6]:after{content:"";display:inline-block;vertical-align:baseline;width:10px;height:10px;margin-left:10px;background:url(https://twportal.blob.core.windows.net/images-xyzprinting/images-xyz3.0/general/Icon-function.svg) 0 -30px/cover no-repeat;transition:transform .3s}.gn-list-mobile[_ngcontent-bjj-c6]   .gn-item.gn-item-drop[_ngcontent-bjj-c6]   .submenu-vertical[_ngcontent-bjj-c6] > ul[_ngcontent-bjj-c6]   li[_ngcontent-bjj-c6]   .series-name[_ngcontent-bjj-c6]{display:block;position:relative;color:#333;padding:15px 0;font-size:16px;font-weight:400;cursor:default}.gn-list-mobile[_ngcontent-bjj-c6]   .gn-item.gn-item-drop[_ngcontent-bjj-c6]   .submenu-vertical[_ngcontent-bjj-c6] > ul[_ngcontent-bjj-c6]   li.pn-item[_ngcontent-bjj-c6]{border-bottom:1px solid #d1d1d1;padding-bottom:25px}.gn-list-mobile[_ngcontent-bjj-c6]   .gn-item.gn-item-drop[_ngcontent-bjj-c6]   .submenu-vertical[_ngcontent-bjj-c6] > ul[_ngcontent-bjj-c6]   li.pn-item.choose[_ngcontent-bjj-c6]{background-color:#767688;color:#fff}.gn-list-mobile[_ngcontent-bjj-c6]   .gn-item.gn-item-drop[_ngcontent-bjj-c6]   .submenu-vertical[_ngcontent-bjj-c6] > ul[_ngcontent-bjj-c6]   li.pn-item.choose[_ngcontent-bjj-c6]:after{background:url(https://twportal.blob.core.windows.net/images-xyzprinting/hf/ic_main.svg) 0 -135px/cover no-repeat;-ms-transform:rotate(180deg);transform:rotate(180deg)}.gn-list-mobile[_ngcontent-bjj-c6]   .gn-item.gn-item-drop[_ngcontent-bjj-c6]   .submenu-vertical[_ngcontent-bjj-c6] > ul[_ngcontent-bjj-c6]   li.pn-item[_ngcontent-bjj-c6]:last-child{border-bottom:0}.gn-list-mobile[_ngcontent-bjj-c6]   .gn-item.gn-item-drop[_ngcontent-bjj-c6]   .submenu-vertical.active[_ngcontent-bjj-c6]{position:relative;display:block;height:auto}.gn-list-mobile[_ngcontent-bjj-c6]   .gn-item.gn-item-drop[_ngcontent-bjj-c6]   .submenu-vertical.active[_ngcontent-bjj-c6] > ul[_ngcontent-bjj-c6]{position:static;height:auto;visibility:visible;-ms-transform:none;transform:none;opacity:1;transition:transform .3s;z-index:1}.gn-list-mobile[_ngcontent-bjj-c6]   .gn-item.gn-item-drop[_ngcontent-bjj-c6]   .submenu-vertical.submenu-child[_ngcontent-bjj-c6]   ul[_ngcontent-bjj-c6]{background-color:#f7f7f7}.gn-list-mobile[_ngcontent-bjj-c6]   .gn-item.gn-item-drop[_ngcontent-bjj-c6]   .submenu-vertical.submenu-child[_ngcontent-bjj-c6]   ul[_ngcontent-bjj-c6]   li[_ngcontent-bjj-c6]{color:#333}.gn-list-mobile[_ngcontent-bjj-c6]   .pn-item[_ngcontent-bjj-c6]{position:relative}.gn-list-mobile[_ngcontent-bjj-c6]   .pn-item.category-dropable[_ngcontent-bjj-c6]:after{content:"";display:inline-block;vertical-align:middle;width:15px;height:15px;position:absolute;right:20px;top:14px;background:url(https://twportal.blob.core.windows.net/images-xyzprinting/hf/ic_main.svg) 0 -120px/cover no-repeat}.gn-list-mobile[_ngcontent-bjj-c6]   .end-block[_ngcontent-bjj-c6]   .item-title[_ngcontent-bjj-c6]{padding-top:10px;padding-bottom:10px}.gn-list-mobile[_ngcontent-bjj-c6]   .space[_ngcontent-bjj-c6]{margin-top:8rem}}</style><style>#home-content[_ngcontent-bjj-c8]{background-color:#f7f7f7}#home-content[_ngcontent-bjj-c8]   .container-content[_ngcontent-bjj-c8]{padding:50px 90px}#home-content[_ngcontent-bjj-c8]   .caption.index-caption[_ngcontent-bjj-c8]{margin-bottom:50px}#home-content[_ngcontent-bjj-c8]   .caption.card-caption[_ngcontent-bjj-c8]{margin:13px}#home-content[_ngcontent-bjj-c8]   .desc.card-desc[_ngcontent-bjj-c8]{color:#6d6f7a;font-size:14px}#home-content[_ngcontent-bjj-c8]   .card-series[_ngcontent-bjj-c8]{-ms-flex-wrap:wrap;flex-wrap:wrap}#home-content[_ngcontent-bjj-c8]   .index-series[_ngcontent-bjj-c8]{-ms-flex-pack:justify;justify-content:space-between;-ms-flex-wrap:wrap;flex-wrap:wrap;margin:2px;background:#fff}#home-content[_ngcontent-bjj-c8]   .index-series-prod[_ngcontent-bjj-c8]{border-top:1px solid #d1d1d1;border-right:1px solid #d1d1d1;box-sizing:border-box}#home-content[_ngcontent-bjj-c8]   .index-series-prod[_ngcontent-bjj-c8]:nth-child(even){border-right:none}#home-content[_ngcontent-bjj-c8]   .index-series-prod[_ngcontent-bjj-c8]:nth-child(-n+2){border-top:none}#home-content[_ngcontent-bjj-c8]   .index-series-prodImg[_ngcontent-bjj-c8]{margin:12px 5px;width:29%}#home-content[_ngcontent-bjj-c8]   .index-series-prodName[_ngcontent-bjj-c8]{font-size:14px;display:inline-block}#home-content[_ngcontent-bjj-c8]   .promotion-banner[_ngcontent-bjj-c8] > a[_ngcontent-bjj-c8]{margin:30px 0 0}#home-content[_ngcontent-bjj-c8]   .promotion-banner-img[_ngcontent-bjj-c8]{width:100%}@media screen and (min-width:768px) and (max-width:1068px){#home-content[_ngcontent-bjj-c8]   .index-series[_ngcontent-bjj-c8]{padding:0}#home-content[_ngcontent-bjj-c8]   .index-series-prodImg[_ngcontent-bjj-c8]{margin:10px auto;width:50%;min-width:60px;display:block}#home-content[_ngcontent-bjj-c8]   .index-series-prodName[_ngcontent-bjj-c8]{width:100%;min-height:42px;text-align:center}}@media screen and (max-width:767px){#home-content[_ngcontent-bjj-c8]   .container-content[_ngcontent-bjj-c8]{padding:10px}#home-content[_ngcontent-bjj-c8]   .caption.index-caption[_ngcontent-bjj-c8]{margin:40px 0}#home-content[_ngcontent-bjj-c8]   .card-prods[_ngcontent-bjj-c8]{-ms-flex-positive:1;flex-grow:1}#home-content[_ngcontent-bjj-c8]   .index-series[_ngcontent-bjj-c8]{padding:0}#home-content[_ngcontent-bjj-c8]   .index-series-prodImg[_ngcontent-bjj-c8]{margin:10px auto;width:50%;min-width:60px;display:block}#home-content[_ngcontent-bjj-c8]   .index-series-prodName[_ngcontent-bjj-c8]{width:100%;min-height:42px;text-align:center}}</style><style>.caption[_ngcontent-bjj-c10]{margin:60px 0}@media screen and (max-width:767px){.caption[_ngcontent-bjj-c10]{margin:44px 0 22px}}.newest[_ngcontent-bjj-c10]{background:#fff;padding:50px 50px 30px}.newest-image[_ngcontent-bjj-c10]{width:36%;padding-bottom:360px;background-repeat:no-repeat;background-size:contain;display:inline-block}.newest-list[_ngcontent-bjj-c10]{width:62%;display:inline-block;vertical-align:top;padding-left:30px}.newest-article[_ngcontent-bjj-c10]{display:inline-block;position:relative;padding:13px 0;color:#494c4d;border-top:1px solid #828282;width:100%}.newest-article[_ngcontent-bjj-c10] > div[_ngcontent-bjj-c10]{-ms-flex-wrap:wrap;flex-wrap:wrap;-ms-flex-pack:justify;justify-content:space-between}.newest-topNews[_ngcontent-bjj-c10]{padding:20px 0 16px}.newest-topNews[_ngcontent-bjj-c10]   .newest-date[_ngcontent-bjj-c10]:after{content:"";display:inline-block;vertical-align:top;width:14px;height:13px;position:absolute;top:0;margin-left:-14px;background-image:url(https://twportal.blob.core.windows.net/images-xyzprinting/images-xyz3.0/general/icon-tag.svg)}.newest-content[_ngcontent-bjj-c10]{width:80%;vertical-align:top}.newest-date[_ngcontent-bjj-c10]{display:inline-block;color:#828282;margin:0 10px 10px 0;font-weight:lighter;font-size:14px}.newest-title[_ngcontent-bjj-c10]{font-weight:700;margin-bottom:10px}.newest-desc[_ngcontent-bjj-c10], .newest-title[_ngcontent-bjj-c10]{display:-webkit-box;overflow:hidden;line-height:20px;text-overflow:"...";-webkit-box-orient:vertical;-webkit-line-clamp:2;max-height:40px}.newest-link[_ngcontent-bjj-c10]{margin-top:15px;text-align:right}@media screen and (max-width:767px){.newest[_ngcontent-bjj-c10]{padding:20px 20px 46px}.newest-image[_ngcontent-bjj-c10]{width:100%;padding-bottom:100%}.newest-list[_ngcontent-bjj-c10]{width:100%;padding:0}.newest-content[_ngcontent-bjj-c10]{width:100%}.newest-article[_ngcontent-bjj-c10]:nth-child(1){border:none}.newest-topNews[_ngcontent-bjj-c10]   .newest-date[_ngcontent-bjj-c10]:after{margin-left:14px}.newest-date[_ngcontent-bjj-c10]{position:relative}.newest-desc[_ngcontent-bjj-c10], .newest-title[_ngcontent-bjj-c10]{display:-webkit-box;overflow:hidden;line-height:20px;text-overflow:"...";-webkit-box-orient:vertical;-webkit-line-clamp:3;max-height:60px}.newest-link[_ngcontent-bjj-c10]{margin-top:45px;text-align:center}}</style><style>.subscribeEdm-bg[_ngcontent-bjj-c11]{background:url(https://twportal.blob.core.windows.net/images-xyzprinting/images-xyz3.0/index/bg_subscribe-edm_desktop.png) top/cover;padding-bottom:29%;width:100%}.subscribeEdm-content[_ngcontent-bjj-c11]{padding:80px 0;top:0;left:0;right:0;width:100%}.subscribeEdm-submit[_ngcontent-bjj-c11]{width:44px;height:33px;position:absolute;right:1px;top:1px;border-radius:0 40px 40px 0;background:#fff;border:0;transition:.5s}.subscribeEdm-submit[_ngcontent-bjj-c11]:hover{background:rgba(0,0,0,.1);transition:.5s}.subscribeEdm[_ngcontent-bjj-c11]   .desc[_ngcontent-bjj-c11]{padding:30px 0}.subscribeEdm[_ngcontent-bjj-c11]   form[_ngcontent-bjj-c11]{width:40%;max-width:400px;position:relative;margin:auto}.subscribeEdm[_ngcontent-bjj-c11]   input[type=email][_ngcontent-bjj-c11]{-webkit-appearance:none;-moz-appearance:none;appearance:none;width:100%;line-height:2;height:35px;border-radius:40px;border:1px solid #d1d1d1;padding:0 15px;box-sizing:border-box;outline:0}.subscribeEdm[_ngcontent-bjj-c11]   .error-text[_ngcontent-bjj-c11]{color:#cf1e1e;font-size:14px;margin:10px;text-align:left}@media screen and (min-width:768px) and (max-width:1068px){.subscribeEdm-bg[_ngcontent-bjj-c11]{padding-bottom:35%}.subscribeEdm-content[_ngcontent-bjj-c11]{padding:50px 0}}@media screen and (max-width:767px){.subscribeEdm-bg[_ngcontent-bjj-c11]{background:url(https://twportal.blob.core.windows.net/images-xyzprinting/images-xyz3.0/index/bg_subscribe-edm_mobile.png) 0 0/cover no-repeat;padding-bottom:130%}.subscribeEdm-content[_ngcontent-bjj-c11]{width:80%}.subscribeEdm[_ngcontent-bjj-c11]   form[_ngcontent-bjj-c11]{width:100%}}.popup[_ngcontent-bjj-c11]{background:#fff;top:50%;left:50%;-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%);z-index:11;padding:25px 88px;box-shadow:0 0 10px 3px rgba(100,100,100,.5);color:#494c4d;border-radius:4px}.popup-title[_ngcontent-bjj-c11]{font-size:24px;font-weight:700}.popup-desc[_ngcontent-bjj-c11]{font-size:18px;margin:25px 0;line-height:2}.popup[_ngcontent-bjj-c11]   .btn-fill-color-style[_ngcontent-bjj-c11]{min-width:152px}@media screen and (max-width:767px){.popup[_ngcontent-bjj-c11]{padding:30px;width:90%}}</style><style>.redirect[_ngcontent-bjj-c12]{position:fixed;width:100%;height:100%;top:0}.redirect[_ngcontent-bjj-c12]   .btn-fill-color-style[_ngcontent-bjj-c12]{position:absolute;left:50%;-ms-transform:translateX(-50%);transform:translateX(-50%);bottom:5%;min-width:130px;white-space:nowrap}.redirect-mask[_ngcontent-bjj-c12]{background:rgba(0,0,0,.8);z-index:20}.redirect-content[_ngcontent-bjj-c12]{right:0;left:0}.redirect-title[_ngcontent-bjj-c12]{font-size:24px;font-weight:700;color:#fff;margin-bottom:40px}.redirect-cardWrap[_ngcontent-bjj-c12]{-ms-flex-line-pack:stretch;align-content:stretch;-ms-flex-pack:center;justify-content:center}.redirect-card[_ngcontent-bjj-c12]{width:250px;border-radius:5px;padding:20px;margin:0 15px;position:relative}.redirect-card[_ngcontent-bjj-c12] > h5[_ngcontent-bjj-c12]{font-size:18px;font-weight:700;margin-bottom:15px}.redirect-card[_ngcontent-bjj-c12] > p[_ngcontent-bjj-c12]{font-size:14px;line-height:1.5;padding-bottom:100%}.redirect-card-2C[_ngcontent-bjj-c12]{background:#fff}.redirect-card-2B[_ngcontent-bjj-c12]{background-image:linear-gradient(125deg,#252525,#333);color:#fff}.redirect-image-2B[_ngcontent-bjj-c12], .redirect-image-2C[_ngcontent-bjj-c12]{position:absolute;left:0}.redirect-image-2B[_ngcontent-bjj-c12] > img[_ngcontent-bjj-c12], .redirect-image-2C[_ngcontent-bjj-c12] > img[_ngcontent-bjj-c12]{width:100%}.redirect-image-2C[_ngcontent-bjj-c12]{width:68%;right:0;margin:auto;bottom:6%}.redirect-image-2B[_ngcontent-bjj-c12]{width:100%;bottom:0}@media screen and (max-width:767px){.redirect[_ngcontent-bjj-c12]   .btn-fill-color-style[_ngcontent-bjj-c12]{min-width:110px}.redirect[_ngcontent-bjj-c12]   .btn-fill-color-style[_ngcontent-bjj-c12]   .btn-text[_ngcontent-bjj-c12]{font-size:13px}.redirect-title[_ngcontent-bjj-c12]{font-size:20px}.redirect-card[_ngcontent-bjj-c12]{width:46%;max-width:220px;padding:15px;margin:0 5px}.redirect-card[_ngcontent-bjj-c12] > h5[_ngcontent-bjj-c12]{margin-bottom:110%;min-height:36px;font-size:16px}.redirect-card[_ngcontent-bjj-c12] > p[_ngcontent-bjj-c12]{display:none}.redirect-image-2C[_ngcontent-bjj-c12]{bottom:22%}}</style><style>#banner[_ngcontent-bjj-c9]{background-color:#f7f7f7}#banner[_ngcontent-bjj-c9]   #carousel-box[_ngcontent-bjj-c9]{position:relative}#banner[_ngcontent-bjj-c9]   #carousel-box.index-banner-box[_ngcontent-bjj-c9], #banner[_ngcontent-bjj-c9]   #carousel-box.product-banner-box[_ngcontent-bjj-c9]{height:500px}#banner[_ngcontent-bjj-c9]   #carousel-box.material-banner-box[_ngcontent-bjj-c9]{height:282px}#banner[_ngcontent-bjj-c9]   .banner-box[_ngcontent-bjj-c9]{width:100%;height:100%;overflow:hidden;z-index:11}#banner[_ngcontent-bjj-c9]   .banner-box[_ngcontent-bjj-c9]   figure[_ngcontent-bjj-c9]{width:100%;height:100%;background-size:cover;background-position:center top;background-repeat:no-repeat}#banner[_ngcontent-bjj-c9]   .banner-box[_ngcontent-bjj-c9]   .content-block[_ngcontent-bjj-c9]{padding-left:100px}#banner[_ngcontent-bjj-c9]   .banner-box[_ngcontent-bjj-c9]   .banner-title[_ngcontent-bjj-c9]{margin-bottom:10px;font-size:36px;font-weight:600;color:#333}#banner[_ngcontent-bjj-c9]   .banner-box[_ngcontent-bjj-c9]   .edit-block[_ngcontent-bjj-c9]{margin-bottom:20px}#banner[_ngcontent-bjj-c9]   .carousel-control[_ngcontent-bjj-c9]{background-image:none;z-index:12}#banner[_ngcontent-bjj-c9]   .carousel-indicators[_ngcontent-bjj-c9]{position:relative;width:1100px;margin:auto;left:0;top:0;font-size:0}#banner[_ngcontent-bjj-c9]   .carousel-indicators[_ngcontent-bjj-c9]   li[_ngcontent-bjj-c9]{width:275px;height:78px;margin:0;border:0;border-top:2px solid #fff;background-color:#f7f7f7;border-radius:0;text-indent:0}#banner[_ngcontent-bjj-c9]   .carousel-indicators[_ngcontent-bjj-c9]   .active[_ngcontent-bjj-c9]{border-top:2px solid #f02323;background-color:#fff}#banner[_ngcontent-bjj-c9]   .carousel-indicators[_ngcontent-bjj-c9]   .block-indicatorImg[_ngcontent-bjj-c9]{width:20%}#banner[_ngcontent-bjj-c9]   .carousel-indicators[_ngcontent-bjj-c9]   .block-indicatorImg[_ngcontent-bjj-c9]   img[_ngcontent-bjj-c9]{width:100%}#banner[_ngcontent-bjj-c9]   .carousel-indicators[_ngcontent-bjj-c9]   .block-indicatorSlogan[_ngcontent-bjj-c9], #banner[_ngcontent-bjj-c9]   .carousel-indicators[_ngcontent-bjj-c9]   .block-indicatorSlogan[_ngcontent-bjj-c9]   .desc[_ngcontent-bjj-c9]{width:80%}@media screen and (min-width:1921px){#banner[_ngcontent-bjj-c9]   .banner-box[_ngcontent-bjj-c9]   figure[_ngcontent-bjj-c9]{width:auto;height:100%;background-size:initial;background-position:center top;background-repeat:no-repeat}}@media screen and (max-width:767px){#banner[_ngcontent-bjj-c9]   #carousel-box.index-banner-box[_ngcontent-bjj-c9]{height:100%}#banner[_ngcontent-bjj-c9]   .banner-box[_ngcontent-bjj-c9]   .content-block[_ngcontent-bjj-c9]{padding:30px 20px 20px}#banner[_ngcontent-bjj-c9]   .carousel-indicators[_ngcontent-bjj-c9]{position:absolute;width:100%;margin:auto;left:0;top:unset;bottom:20px}#banner[_ngcontent-bjj-c9]   .carousel-indicators[_ngcontent-bjj-c9]   li[_ngcontent-bjj-c9]{width:10px;height:10px;margin:0;border:0;border-top:0;background-color:#f7f7f7;border-radius:50%;text-indent:0}#banner[_ngcontent-bjj-c9]   .carousel-indicators[_ngcontent-bjj-c9]   .active[_ngcontent-bjj-c9]{background-color:#f02323}#banner[_ngcontent-bjj-c9]   .carousel-indicators[_ngcontent-bjj-c9]   .block-indicatorImg[_ngcontent-bjj-c9]{width:20%}#banner[_ngcontent-bjj-c9]   .carousel-indicators[_ngcontent-bjj-c9]   .block-indicatorImg[_ngcontent-bjj-c9]   img[_ngcontent-bjj-c9]{width:100%}#banner[_ngcontent-bjj-c9]   .carousel-indicators[_ngcontent-bjj-c9]   .block-indicatorSlogan[_ngcontent-bjj-c9]{width:80%}}</style><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","url":"https://www.xyzprinting.com/","logo":"https://twportal.blob.core.windows.net/images-xyzprinting/hf/img_web2.0_new_logo.png"}</script><link href="https://xyzofficialweb.blob.core.windows.net/xyz-v3/stylesheets/pre-style.css?R=0.4628490467559747"><link href="https://xyzofficialweb.blob.core.windows.net/xyz-v3/stylesheets/bc_all.css?R=0.8734092574896528"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","url":"https://www.xyzprinting.com/","logo":"https://twportal.blob.core.windows.net/images-xyzprinting/hf/img_web2.0_new_logo.png"}</script><script async="" src="0813_files/modules(1).8da33a8f469c3b5ffcec.js" charset="utf-8"></script></head>
+  <body class="">
+  <div id="top"></div>
+    <div id="kinpoTag" style="display: none">2024 KINPO ELECTRONICS,INC</div>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NZRGK7G"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <app-root _nghost-bjj-c0="" ng-version="8.2.4">
+    <div _ngcontent-bjj-c0="" lang="zh-TW">
+    <!----><app-header _ngcontent-bjj-c0="" _nghost-bjj-c2="">
+    <header _ngcontent-bjj-c2="" id="globalNav">
+    <div _ngcontent-bjj-c2="" class="page1280-max">
+    
+    <div _ngcontent-bjj-c2="" class="container-nv-plateform">
+    <div _ngcontent-bjj-c2="" class="service-gn-list float-right">
+    </div><div _ngcontent-bjj-c2="" class="clearfix"></div></div>
+    <div _ngcontent-bjj-c2="" class="container-nv-main list-float">
+    <div _ngcontent-bjj-c2="">
+    <a _ngcontent-bjj-c2="" class="element-block container-logo" ><img _ngcontent-bjj-c2="" alt="XYZprinting Logo" class="logo element-block" src="0813_files/img_web2.0_new_logo.svg"></a></div>
+    <div _ngcontent-bjj-c2="" class="gn-list" id="id-menu"><ul _ngcontent-bjj-c2="" class="list-float"><!----><li _ngcontent-bjj-c2="" class="main-gn-item is-pointer" style="padding: 20px 10px;"><!----><div _ngcontent-bjj-c2="" onclick="document.getElementById('eng').scrollIntoView();">English</div><!----></li><li _ngcontent-bjj-c2="" class="main-gn-item is-pointer" style="padding: 20px 10px;"><!----><div _ngcontent-bjj-c2="" onclick="document.getElementById('chinese').scrollIntoView();">中文</div><!----></li><li _ngcontent-bjj-c2="" class="main-gn-item is-pointer" style="padding: 20px 10px;"><!----><!----><!----><!----><div _ngcontent-bjj-c2="" onclick="document.getElementById('japan').scrollIntoView();">日本語</div><!----><!----></li></ul></div><div _ngcontent-bjj-c2="" class="search"></div></div><app-mobile-header _ngcontent-bjj-c2="" _nghost-bjj-c6=""><div _ngcontent-bjj-c6="" id="stickyContainer"><div _ngcontent-bjj-c6="" class="gn-header--mobile" id="mobile-header"><ul _ngcontent-bjj-c6=""><li _ngcontent-bjj-c6="" class="gn-header-item-mobile gn-header-item-menu"><figure _ngcontent-bjj-c6="" class="icon-menu is-pointer"></figure></li><li _ngcontent-bjj-c6="" class="gn-header-item-mobile gn-header-item-logo push-to-middle-center"><a _ngcontent-bjj-c6="" href="https://www.xyzprinting.com/zh-TW/"><img _ngcontent-bjj-c6="" alt="XYZprinting Logo" class="col-12" src="0813_files/img_web2.0_new_logo.svg"></a></li></ul></div><div _ngcontent-bjj-c6="" class="gn-list-mobile col-12" style="height: 803px;"><ul _ngcontent-bjj-c6=""><!----><li _ngcontent-bjj-c6="" class="gn-item gn-item-drop" id="menuItem0"><!----><div _ngcontent-bjj-c6="" class="nonInnerLinkBlock">產品</div><!----><!----><div _ngcontent-bjj-c6="" class="s-submenu submenu-vertical col-12"><ul _ngcontent-bjj-c6=""><!----></ul></div></li><li _ngcontent-bjj-c6="" class="gn-item gn-item-drop" id="menuItem1"><!----><div _ngcontent-bjj-c6="" class="nonInnerLinkBlock">軟體</div><!----><!----><div _ngcontent-bjj-c6="" class="s-submenu submenu-vertical col-12"><ul _ngcontent-bjj-c6=""><!----></ul></div></li><li _ngcontent-bjj-c6="" class="gn-item" id="menuItem2"><!----><!----><!----><!----><!----><a _ngcontent-bjj-c6="" class="item-title element-block" href="https://www.xyzprinting.com/zh-TW/news">新聞</a><!----><!----><!----></li><li _ngcontent-bjj-c6="" class="gn-item" id="menuItem3"><!----><!----><!----><a _ngcontent-bjj-c6="" class="item-title element-block" href="https://steam.xyzprinting.com/events/zh-TW/home" target="_blank">教育專區</a><!----><!----><!----><!----><!----></li><li _ngcontent-bjj-c6="" class="gn-item" id="menuItem4"><!----><!----><!----><!----><!----><a _ngcontent-bjj-c6="" class="item-title element-block" href="https://www.xyzprinting.com/zh-TW/stories">活用案例</a><!----><!----><!----></li><li _ngcontent-bjj-c6="" class="gn-item" id="menuItem5"><!----><!----><!----><!----><!----><a _ngcontent-bjj-c6="" class="item-title element-block" href="https://www.xyzprinting.com/zh-TW/FAQ">常見問題</a><!----><!----><!----></li><li _ngcontent-bjj-c6="" class="gn-item" id="menuItem6"><!----><!----><!----><!----><a _ngcontent-bjj-c6="" class="item-title element-block" href="https://www.xyzprinting.com/zh-TW/knowledge" target="_blank">3D列印知識</a><!----><!----><!----><!----></li></ul><ul _ngcontent-bjj-c6="" id="platformListGroup"><!----><li _ngcontent-bjj-c6="" class="gn-item"><!----><!----><!----><!----><!----><!----><a _ngcontent-bjj-c6="" class="item-title element-block" href="https://shopee.tw/xyzprinting" target="_blank">線上購買</a><!----><!----><!----><!----></li><li _ngcontent-bjj-c6="" class="gn-item"><!----><!----><!----><!----><!----><!----><!----><a _ngcontent-bjj-c6="" class="item-title element-block" href="https://www.xyzprinting.com/support/zh-TW/Help" target="_blank">售後服務</a><!----><!----><!----></li><li _ngcontent-bjj-c6="" class="gn-item"><!----><!----><!----><!----><!----><!----><a _ngcontent-bjj-c6="" class="item-title element-block" href="https://pro.xyzprinting.com/zh-TW/home" target="_blank">商用機種</a><!----><!----><!----><!----></li><li _ngcontent-bjj-c6="" class="gn-item"><!----><a _ngcontent-bjj-c6="" applangtranslation="" class="item-title element-block" href="https://www.xyzprinting.com/AccountCenter/zh-TW/login?returnWebsite=https://www.xyzprinting.com">會員登入 / 註冊</a><!----></li><!----><!----><li _ngcontent-bjj-c6="" class="gn-item end-block space"><!----></li><!----><li _ngcontent-bjj-c6="" class="gn-item end-block"><!----></li><!----><li _ngcontent-bjj-c6="" class="gn-item end-block"><!----></li></ul></div></div></app-mobile-header></div><div _ngcontent-bjj-c2="" class="s-submenu submenu-vertical col-12 text-center" id="dropdownPanel"><div _ngcontent-bjj-c2="" class="container-pd-category list-float element-inline"><!----></div></div></header></app-header><router-outlet _ngcontent-bjj-c0=""></router-outlet><app-home _nghost-bjj-c8="" aligin="center">
+
+<div align="center"  id="eng"><br><br><br>Dear Valued Customer,</div><br>
+<div align="left" style="padding-left:20%;  width:80%;line-height: 1.5;">
+<br />
+
+XYZprinting is grateful for the opportunity to have been part of your 3D printing journey. Thank you for trusting our products and services.<br />
+Following our 2023 announcement regarding the cessation of global 3D printing sales and operations, we wish to remind you of the end-of-warranty periods and aftermarket support services in the following regions:<br /><br />
+
+
+<div class="table_component" role="region" tabindex="0">
+<table>
+    <caption style="font-size: 1.2rem; font-weight: bold;">Product Warranty and Support Schedule:</caption>
+    <thead>
+        <tr>
+            <th width="100px">Region</th>
+            <th width="150px">Warranty<br />  Period</th>
+            <th width="150px">Warranty<br /> Expiry Date</th>
+            <th>Aftermarket Service Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Europe</td>
+            <td >24 months<br />  from purchase</td>
+            <td>2025/06/30</td>
+            <td>Service by Fabistron GmbH continues until 2025/06/30.<br />
+More info on <a href="https://support.fabistron.com/xyzprinting/" target="_blank" style="color: blue;/text-decoration: underline;">https://support.fabistron.com/xyzprinting/</a>
+</td>
+        </tr>
+        <tr>
+            <td>USA</td>
+            <td>12 months<br />  from purchase</td>
+            <td>2024/12/31</td>
+            <td>Service by EKKO end on 2024/12/31. <br />
+Limited support via <a href="mailto:xyz3dservice@gmail.com" style="color: blue;/text-decoration: underline;">xyz3dservice@gmail.com</a>
+</td>
+        </tr>
+        <tr>
+            <td>Japan</td>
+            <td>12 months<br />  from purchase</td>
+            <td>2024/12/31</td>
+            <td>Service by IGUAZU continues until 2026/12/31.
+<br />More info on <a href="https://krs.bz/iguazu/m/inq_after_xyz" target="_blank" style="color: blue;/text-decoration: underline;">  https://krs.bz/iguazu/m/inq_after_xyz</a>
+</td>
+        </tr>
+        <tr>
+            <td>Taiwan</td>
+            <td>12 months<br />  from purchase </td>
+            <td>2024/12/31</td>
+            <td>Directly handled by XYZprinting until 2025/12/31. 
+<br />Limited support via <a href="mailto:xyz3dservice@gmail.com" style="color: blue;/text-decoration: underline;"> xyz3dservice@gmail.com</a><br />
+</td>
+        </tr>
+    </tbody>
+</table>
+
+</div><br />
+<span style="font-size: 1.2rem; font-weight: bold;">Important Notes:</span><br />
+<div style="padding-left:12px;">•	Products purchased under special deals are excluded from general warranty coverage. Please review the specific terms and conditions of these purchases for details.</div>
+
+<div style="padding-left:12px;">•	Aftermarket support, including repairs, spare parts, and technical assistance, will cease following the respective expiry dates in each region.</div>
+<br />
+
+
+We sincerely thank you for your long-term support and wish you continued creativity in your 3D printing endeavors. 
+<br />
+<br />
+
+XYZprinting INC<br />
+2024/12/01<br />
+
+<div onclick="document.getElementById('top').scrollIntoView();" style="color:blue">[Go Top]</div>
+<br /><br />
+</div>
+<div align="center"  id="chinese"><br><br><br>敬愛的使用者您好,</div><br>
+<div align="left" style="padding-left:20%;  width:80%;line-height: 1.5;">
+<br />
+
+感謝您選擇 XYZprinting，很榮幸能參與您的3D 列印創作歷程，感謝您對我們產品與服務的信賴。
+繼 2023 年公告停止全球 3D 列印開發與銷售後，我們在此提醒您各地區的產品保固期限及售後服務細節如下：
+<br /><br />
+<div class="table_component" role="region" tabindex="0">
+<table>
+    <caption style="font-size: 1.2rem; font-weight: bold;">產品保固與售後服務時間表</caption>
+    <thead>
+        <tr>
+            <th width="100px">地區</th>
+            <th width="150px">保固期限</th>
+            <th width="150px">保固到期日</th>
+            <th>售後服務細節</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>歐洲</td>
+            <td >購買日起 24 個月</td>
+            <td>2025/06/30</td>
+            <td>由 Fabistron GmbH 提供服務至 2025/06/30<br />詳情請參見：<a href="https://support.fabistron.com/xyzprinting/" target="_blank" style="color: blue;/text-decoration: underline;">https://support.fabistron.com/xyzprinting/</a>
+</td>
+        </tr>
+        <tr>
+            <td>美國</td>
+            <td>購買日起 12 個月</td>
+            <td>2024/12/31</td>
+            <td>由 EKKO 提供服務至 2024/12/31，後續提供有限度的客戶服務 <br />
+請聯繫 <a href="mailto:xyz3dservice@gmail.com" style="color: blue;/text-decoration: underline;">xyz3dservice@gmail.com</a>
+</td>
+        </tr>
+        <tr>
+            <td>日本</td>
+            <td>購買日起 12 個月</td>
+            <td>2024/12/31</td>
+            <td>由 IGUAZU 提供服務至 2026/12/31
+<br />詳情請參見：<a href="https://krs.bz/iguazu/m/inq_after_xyz" target="_blank" style="color: blue;/text-decoration: underline;">  https://krs.bz/iguazu/m/inq_after_xyz</a>
+</td>
+        </tr>
+        <tr>
+            <td>台灣</td>
+            <td>購買日起 12 個月 </td>
+            <td>2024/12/31</td>
+            <td>由 XYZprinting提供基本支援服務至 2025/12/31
+<br />客戶若需協助服務請聯繫 <a href="mailto:xyz3dservice@gmail.com" style="color: blue;/text-decoration: underline;"> xyz3dservice@gmail.com</a><br />
+</td>
+        </tr>
+    </tbody>
+</table><br />
+<span style="font-size: 1.2rem; font-weight: bold;">重要事項</span><br />
+<div style="padding-left:12px;">•	特價品不包含在一般保固範圍內，詳情請參考各項購買條款與條件。</div>
+
+<div style="padding-left:12px;">•	售後服務（包括維修、備品和技術服務）將於各地區的相應到期日後停止。</div>
+<br />
+
+
+感謝您長期以來的支持，祝您3D 列印持續創作、靈感充沛！<br /><br />
+
+XYZprinting INC<br />
+2024/12/01
+<div onclick="document.getElementById('top').scrollIntoView();" style="color:blue">[Go Top]</div>
+</div>
+    <div align="center"  id="japan"><br><br><br>お客様各位</div><br>
+
+<br />
+XYZprintingは、皆様の3Dプリンティングの旅の一部となれたことに感謝申し上げます。私たちの製品とサービスをご利用いただき、ありがとうございます。<br />
+2023年に発表した3Dプリンティング事業の終了に伴い、以下の地域における保証期間およびアフターサービスサポートの詳細をお知らせいたします。
+
+<br /><br />
+<div class="table_component" role="region" tabindex="0">
+<table>
+    <caption style="font-size: 1.2rem; font-weight: bold;">製品保証およびサポートスケジュール</caption>
+    <thead>
+        <tr>
+            <th width="100px">地域</th>
+            <th width="150px">保証期間</th>
+            <th width="150px">保証終了日</th>
+            <th>アフターサービス詳細</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>ヨーロッパ</td>
+            <td >購入日から24ヶ月</td>
+            <td>2025/06/30</td>
+            <td>Fabistron GmbHによるサービスは2025/06/30まで継続されます。<br />詳細：：<a href="https://support.fabistron.com/xyzprinting/" target="_blank" style="color: blue;/text-decoration: underline;">https://support.fabistron.com/xyzprinting/</a>
+</td>
+        </tr>
+        <tr>
+            <td>アメリカ</td>
+            <td>購入日から12ヶ月</td>
+            <td>2024/12/31</td>
+            <td>EKKOによるサービスは2024/12/31に終了します。<br />
+サポートについては <a href="mailto:xyz3dservice@gmail.com" style="color: blue;/text-decoration: underline;">xyz3dservice@gmail.com</a>までお問い合わせください。
+</td>
+        </tr>
+        <tr>
+            <td>日本</td>
+            <td>購入日から12ヶ月</td>
+            <td>2024/12/31</td>
+            <td>IGUAZUによるサービスは2026/12/31まで継続されます。
+<br />詳細：<a href="https://krs.bz/iguazu/m/inq_after_xyz" target="_blank" style="color: blue;/text-decoration: underline;">  https://krs.bz/iguazu/m/inq_after_xyz</a>
+</td>
+        </tr>
+        <tr>
+            <td>台湾</td>
+            <td>購入日から12ヶ月</td>
+            <td>2024/12/31</td>
+            <td>XYZprintingによるサービスは2025/12/31まで継続されます。
+<br />サポートについては <a href="mailto:xyz3dservice@gmail.com" style="color: blue;/text-decoration: underline;"> xyz3dservice@gmail.com</a>までお問い合わせください。<br />
+</td>
+        </tr>
+    </tbody>
+</table><br />
+
+<span style="font-size: 1.2rem; font-weight: bold;">重要なお知らせ</span><br />
+<div style="padding-left:12px;">•	特別販売価格で購入された製品は保証サービス対象外です。これらの購入の詳細については、特定の条件をご確認ください。</div>
+
+<div style="padding-left:12px;">•	修理、交換部品、技術サポートを含むアフターサービスは、各地域の保証期間終了後に終了します。</div>
+<br />
+
+長年にわたるご愛顧に心より感謝申し上げます。今後も皆様が3Dプリンティングで創造力を発揮されることをお祈りしております。<br /><br />
+
+
+XYZprinting株式会社<br /><br />
+2024/12/01
+<div onclick="document.getElementById('top').scrollIntoView();" style="color:blue">[Go Top]</div>
+</div>
+
+<div align="center"  id="japan"><br><br><br>業務移管のお知らせ</div><br>
+
+
+ この度、XYZ printing,inc.（本社：台湾）はホームページでも告知させて頂いておりますとおり、段階的に3Dプリンタ事業から撤退することとなりました。<br />
+
+これに伴い、日本国内での販売品に係わるアフターサービス業務いっさいを、株式会社イグアスへ業務移管をし、今後3年間から5年間を目標に継続的にサポート出来る様に努めてまいります。（※具体的な期間は製品毎の状況により異なります）
+
+本業務移管の一環として、2023年8月11日～31日を移管のための準備に使用させていただきますと共に、本期間につきましては出荷業務及びサポート業務を停止させていただきます。<br />
+
+お客様にはご迷惑とならない様、可能な限り円滑に業務の引継ぎを行って参りますが、ご不便、ご迷惑をお掛けいたしますことをお詫び申し上げます。<br />
+
+2023年9月1日以降は株式会社イグアスより、サービスサポートを提供させていただきます。本期間でお待ちいただくこととなりますお客様に対しては、2023年9月1日以降順次対応させていただきます。<br />
+
+永年にわたりXYZプリンティング社製品のご芳情に深く感謝いたしますと共に、業務移管先の株式会社イグアスを今まで以上のお引き立てを賜りたく謹んでお願い申し上げます。<br /><br />
+
+
+業務移管日：2023年9月1日<br />
+
+業務移管先担当窓口：株式会社イグアス　3D&Robotics営業部<br />
+
+住所：〒212-0013<br />
+
+神奈川県川崎市幸区堀川町580番地 ソリッドスクエア西館21F<br />
+
+TEL：044-280-8588<br />
+
+FAX：044-272-7330<br />
+
+Mail：<a href="mailto:3dsolcenter@i-guazu.co.jp" style="color: blue;/text-decoration: underline;">3dsolcenter@i-guazu.co.jp</a><br />
+
+修理等お問い合わせ： <a href="https://krs.bz/iguazu/m/inq_after_xyz" target="_blank" style="color: blue;/text-decoration: underline;">https://krs.bz/iguazu/m/inq_after_xyz</a> <br />
+
+業務移管につきましてご不明な点やご質問がございましたら、業務移管先担当窓口へご連絡いただきますようお願い申し上げます。  <br /><br />
+
+修理・メンテナンス等についてのお問い合わせにつきましては、上記お問い合わせ先フォームにてご連絡くださいますようお願い申し上げます。<br />
+
+<br /><br />
+<div onclick="document.getElementById('top').scrollIntoView();" style="color:blue">[Go Top]</div>
+</div></div>
+    <!----></app-home><app-footer _ngcontent-bjj-c0="" _nghost-bjj-c3=""><footer _ngcontent-bjj-c3="" id="footer"><div _ngcontent-bjj-c3="" class="page1280-max"><div _ngcontent-bjj-c3="" class="list-float block-sitemap block-footer-content"><div _ngcontent-bjj-c3="" class="mobile-hide"><a _ngcontent-bjj-c3="" ><img _ngcontent-bjj-c3="" alt="XYZprinting Logo" class="logo" src="0813_files/img_xyzprinting-logo-bw_lg.png"></a></div><div _ngcontent-bjj-c3="" class="mobile-col-12"><!----></div></div></div></footer></app-footer><!----></div><ngx-json-ld _ngcontent-bjj-c0=""><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "url": "https://www.xyzprinting.com",
+  "logo": "https://twportal.blob.core.windows.net/images-xyzprinting/hf/img_web2.0_new_logo.png",
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+1 855-999-3348",
+      "contactType": "Technical Support",
+      "areaServed": "GB",
+      "availableLanguage": "English"
+    }
+  ]
+}</script></ngx-json-ld><!----></app-root>
+    <script src="0813_files/jquery-1.12.4.min.js"></script>
+    <script src="0813_files/jquery.cookie.min.js"></script>
+    <script src="0813_files/bootstrap.min.js"></script>
+    <script type="text/javascript" id="">(function(){var b={"@context":"https://schema.org","@type":"Organization",url:"https://www.xyzprinting.com/",logo:"https://twportal.blob.core.windows.net/images-xyzprinting/hf/img_web2.0_new_logo.png"},a=document.createElement("script");a.type="application/ld+json";a.innerHTML=JSON.stringify(b);document.head.appendChild(a)})();</script><script src="0813_files/threesixty.min.js"></script>
+    <!-- Auto load customer script & css -->
+    <script>
+        var tmd = 0;
+        (function(w, d, el){
+          const baseUrl = 'https://xyzofficialweb.blob.core.windows.net/xyz-v3/';
+          const loadList = [
+            { tag: 'link', type: 'stylesheets', fileName: 'pre-style.css' },
+            { tag: 'link', type: 'stylesheets', fileName: 'bc_all.css' },
+            { tag: 'script', type: 'javascripts', fileName: 'bc_all.js' },
+          ];
+
+          addContentLoad();
+          loadFile();
+
+          function loadFile() {
+            for(let num = 0; num < loadList.length; num ++) {
+              const loadObj = loadList[num];
+              const link = `${baseUrl}${loadObj.type}/${loadObj.fileName}?R=${Math.random()}`;
+              el = d.createElement(loadObj.tag);
+
+              switch (loadObj.tag) {
+                case 'script':
+                  el.src = link;
+                  d.body.appendChild(el);
+                break;
+                case 'link':
+                  el.href = link;
+                  el.ref = loadObj.type;
+                  d.head.appendChild(el);
+                break;
+              }
+            }
+          }
+          function addContentLoad() {
+            window.addEventListener('DOMContentLoaded', async () => {
+              const detectWebp = () => new Promise((resolve) => {
+                  const imgSrc = 'data:image/webp;base64,UklGRlIAAABXRUJQVlA4WAoAAAASAAAAAAAAAAAAQU5JTQYAAAD/////AABBTk1GJgAAAAAAAAAAAAAAAAAAAGQAAABWUDhMDQAAAC8AAAAQBxAREYiI/gcA';
+                  const pixel = new Image();
+                  pixel.addEventListener('load', () => {
+                      const isSuccess = (pixel.width > 0) && (pixel.height > 0);
+                      resolve(isSuccess);
+                  });
+                  pixel.addEventListener('error', () => { resolve(false); });
+                  pixel.setAttribute('src', imgSrc); // 開始載入測試圖
+              });
+
+              const hasSupport = await detectWebp();
+              document.documentElement.classList.add(hasSupport ? 'webp' : 'no-webp');
+            });
+          }
+        })(window, document);
+    </script><script src="0813_files/bc_all.js"></script>
+    
+<script type="text/javascript" id="">(function(){var b={"@context":"https://schema.org","@type":"Organization",url:"https://www.xyzprinting.com/",logo:"https://twportal.blob.core.windows.net/images-xyzprinting/hf/img_web2.0_new_logo.png"},a=document.createElement("script");a.type="application/ld+json";a.innerHTML=JSON.stringify(b);document.head.appendChild(a)})();</script><iframe id="_hjSafeContext_83384994" title="_hjSafeContext" tabindex="-1" aria-hidden="true" src="0813_files/saved_resource.html" style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;"></iframe><script type="text/javascript" id="">(function(d,a,b,f,e){d[e]=d[e]||[];d[e].push({projectId:"10000",properties:{pixelId:"10079774"}});var c=a.createElement(b);c.src=f;c.async=!0;c.onload=c.onreadystatechange=function(){var a=this.readyState,c=d[e];if(!a||"complete"==a||"loaded"==a)try{var b=YAHOO.ywa.I13N.fireBeacon;d[e]=[];d[e].push=function(a){b([a])};b(c)}catch(g){}};a=a.getElementsByTagName(b)[0];b=a.parentNode;b.insertBefore(c,a)})(window,document,"script","https://s.yimg.com/wi/ytc.js","dotq");</script>
+<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","443054412778747");fbq("track","PageView");</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=443054412778747&amp;ev=PageView&amp;noscript=1"></noscript>
+<img class="ywa-10000" src="https://www.xyzprinting.com/0813_files/sp.pl.%E9%8A%9D%EF%95%A0%BC%89" alt="dot image pixel" style="display: none;">
+
+
+<img class="ywa-10000" src="https://www.xyzprinting.com/0813_files/sp(1).pl.%E9%8A%9D%EF%95%A0%BC%89" alt="dot image pixel" style="display: none;"><iframe id="_hjSafeContext_85426723" title="_hjSafeContext" tabindex="-1" aria-hidden="true" src="0813_files/saved_resource(1).html" style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;"></iframe></body></html>
