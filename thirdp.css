@@ -1,0 +1,596 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, form, input, textarea, p, th, td, section, article, footer {
+	padding: 0;
+	margin: 0;
+}
+body {
+	font-family: Roboto, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	position: relative;
+}
+/* Reset */
+*, *:after, *:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+/* Clearfix hack */
+.clearfix:before, .clearfix:after {
+	content: " ";
+	display: table;
+}
+.clearfix:after {
+	clear: both;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+section, article, footer {
+	display: block;
+}
+img {
+	border: 0;
+}
+img a {
+	max-width: 100%;
+}
+ul, ol, li {
+	list-style-type: none;
+	list-style-image: none;
+}
+hr {
+	border: none;
+	border-top: 1px solid #666;
+	height: 1px;
+}
+strong {
+	font-weight: bold;
+}
+a:link, a:visited, a:active {
+	text-decoration: none;
+	outline: 0;
+}
+a:hover {
+	text-decoration: none;
+	outline: 0;
+}
+/*Header Banner 
+ -------------------------------------------------------------------------*/ 
+.filmt_banner {
+	display: table;
+	height: 480px;
+	width: 100%;
+	position: relative;
+	//background: url(https://xyzofficialweb.blob.core.windows.net/xyz-events/filament/img/fli_kv.jpg) no-repeat 0 0 fixed;
+	background: url(https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/material_page/filament_kv.jpg) no-repeat 0 0 fixed;
+	background-color: #d6d7cf;
+	/*-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+}
+.banner_txt {
+	max-width: 1100px;
+	margin: 0 auto;
+	overflow: hidden;
+	height: 100%;
+	font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+.fli_big_title {
+	width: 550px;
+	padding: 20px;
+	background-color: rgba(255, 255, 255, 0.8);
+	position: absolute;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	top: 50%;
+}
+.fli_name {
+	font-size: 30px;
+	color: #f02323;
+	font-weight: 600;
+	margin-bottom: 20px;
+}
+.fli_disc {
+	font-size: 16px;
+margin-bottom: 20px;
+	font-weight: normal;
+	color: #676767;
+	line-height: 24px;
+}
+.f_txt {
+	font-size: .9rem;
+letter-spacing: .03rem;
+	width: 1084px;
+	margin: 24px auto;
+	padding: 16px 20px;
+	line-height: 1.4;
+	color: rgba(66,66,66,1);
+	background-color: rgba(238,238,238,.8);
+}
+.thi_wrap {
+	display: block;
+	width: 1100px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.thi_mo {
+	display: none;
+}
+.thitem, .thicnt {
+	width: 100%;
+	position: relative;
+}
+.thitem li {
+	display: inline-block;
+	width: calc(19.999% - 14px);
+	margin-right: 10px;
+	font-size: 18px;
+	color: #333;
+	line-height: 24px;
+	padding: 8px 0;
+	text-align: center;
+	border-bottom: 8px solid #333;
+	font-weight: 600;
+}
+.thitem li:nth-child(5), .thicnt li:nth-child(5) {
+	margin-right: 0px;
+}
+.thicnt ul {
+	display: block;
+	overflow: hidden;
+	border-bottom: 1px solid #d9d9d9;
+	padding: 18px 0;
+}
+.thicnt li {
+	display: inline-block;
+	width: calc(19.999% - 14px);
+	margin-right: 10px;
+	font-size: .9rem;
+	color: #333;
+	line-height: 1.4;
+	text-align: center;
+	padding: 0;
+}
+.formdown a {
+	display: block;
+	width: 60%;
+ padding:.5rem 0;
+	font-size: .9rem;
+	line-height: 1.4;
+	text-align: center;
+	color: #fff;
+	background-color: #f02323;
+	margin: 0 auto;
+	text-decoration: none;
+	
+}
+.formdown a:hover, .formdown a:active {
+	background-color: #f02323;
+	color: #fff;
+	text-decoration: none;
+	
+}
+.thicnt li span {
+	width: 15px;
+	height: 15px;
+	
+	margin: 0 auto;
+	display: inline-block;
+	margin-right: 8px;
+}
+.thicnt li:nth-child(3) {
+	text-align: left;
+	padding-left: 70px;
+}
+.tryout {
+	width: 100%;
+	display: block;
+	overflow: hidden;
+	margin-top: 24px;
+}
+.tryout_m {
+	display: none;
+}
+.tryout img, .tryout_m img {
+	max-width: 100%;
+}
+.effect img {
+	opacity: 1;
+	-moz-transform: scale(0.9, 0.9);
+	-webkit-transform: scale(0.9, 0.9);
+	-o-transform: scale(0.9, 0.9);
+	-ms-transform: scale(0.9, 0.9);
+	transform: scale(0.9, 0.9);
+	-webkit-transition: all 0.3s ease-in;
+	-moz-transition: all 0.3s ease-in;
+	-o-transition: all 0.3s ease-in;
+	-ms-transition: all 0.3s ease-in;
+	transition: all 0.3s ease-in;
+}
+.effect:hover img {
+	opacity: 1;
+	-moz-transform: scale(1, 1);
+	-webkit-transform: scale(1, 1);
+	-o-transform: scale(1, 1);
+	-ms-transform: scale(1, 1);
+	transform: scale(1, 1);
+}
+/*TAB*/
+.etabs {
+	width: 1100px;
+	overflow: hidden;
+	display: block;
+	position: relative;
+	margin: 0 auto;
+	padding: 20px 0;
+}
+.tab {
+	display: inline-block; /*zoom:1; *display:inline; */
+	width: calc( 33.333% - 10px );
+	border-right: 1px solid #d1d1d1;
+}
+.tab:nth-child(3) {
+	border-right: none;
+}
+.tab a {
+	font-size: 18px;
+	line-height: 2;
+	display: block;
+	padding: 0;
+	outline: none;
+	color: #333;
+}
+.tab a:hover {
+	text-decoration: none;
+	color: #333;
+}
+.tab-container {
+	width: 100%;
+	background-color: #e9e9e9;
+}
+.tab-stuf a {
+	width: 100%;
+	overflow: hidden;
+	display: block;
+	position: relative;
+}
+.tab-stuf h3, .tab-stuf h3 a {
+	font-size: 20px;
+	line-height: 1.5;
+	color: #333;
+	text-align: center;
+	text-decoration: none;
+	font-weight:700;
+}
+.stuf_line {
+	display: block;
+	width: 50px;
+	height: 3px;
+	background-color: #f02323;
+	margin: 0px auto 16px auto;
+}
+.stuf_line2 {
+	display: block;
+	width: 50px;
+	height: 3px;
+	background-color: #e9e9e9;
+	margin: 8px auto;
+}
+.tab-stuf a img {
+	display: block;
+	margin: 0 auto;
+	opacity: 1;
+}
+.panel_wrap {
+	background: #fff;
+	width: 100%;
+}
+.tab-container .panel-container {
+	padding: 10px;
+	width: 1100px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+	
+
+
+
+
+
+/*=====================  RWD  ==========================*/
+@media screen and (max-width:1600px) {
+/*Header Banner 
+ -------------------------------------------------------------------------*/ 
+.filmt_banner {
+	display: table;
+	height: 480px;
+	width: 100%;
+	position: relative;
+	//background: url(https://xyzofficialweb.blob.core.windows.net/xyz-events/filament/img/fli_kv.jpg) no-repeat 0 0 fixed;
+	background: url(https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/material_page/filament_kv.jpg) no-repeat 0 0 fixed;
+}
+}
+ @media screen and (max-width:1440px) {
+/*Header Banner 
+ -------------------------------------------------------------------------*/ 
+.filmt_banner {
+	display: table;
+	height: 480px;
+	width: 100%;
+	position: relative;
+	//background: url(https://xyzofficialweb.blob.core.windows.net/xyz-events/filament/img/fli_kv.jpg) no-repeat center 0 fixed;
+	background: url(https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/material_page/filament_kv.jpg) no-repeat center 0 0 fixed;
+	background-position: 65% 0%; /*阿P離職後加*/
+}
+}
+ @media screen and (max-width:1024px) {
+/*Header Banner 
+ -------------------------------------------------------------------------*/ 
+.filmt_banner {
+	display: table;
+	height: 400px;
+	width: 100%;
+	position: relative;
+	background: url(https://xyzofficialweb.blob.core.windows.net/xyz-events/filament/img/fli_kv_md.jpg) no-repeat 0 0 fixed;
+}
+.fli_big_title {
+	width: 512px;
+	padding: 20px;
+	background-color: rgba(255, 255, 255, 0.8);
+	position: absolute;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	top: 50%;
+}
+/*TAB*/
+.etabs {
+	width: 1024px;
+	overflow: hidden;
+	display: block;
+	position: relative;
+	margin: 0 auto;
+	padding: 20px 0;
+}
+.tab-container .panel-container {
+	padding: 10px;
+	width: 95%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.f_txt {
+	font-size: 15px;
+	width: 100%;
+	padding: 20px;
+	line-height: 22px;
+}
+.thi_wrap {
+	width: 100%;
+}
+.formdown a {
+	width: 70%;
+}
+.thicnt li:nth-child(3) {
+	padding-left: 50px;
+}
+}
+ @media screen and (max-width:768px) {
+/*Header Banner 
+ -------------------------------------------------------------------------*/ 
+.filmt_banner {
+	display: table;
+	height: 320px;
+	width: 100%;
+	position: relative;
+	background: url(https://xyzofficialweb.blob.core.windows.net/xyz-events/filament/img/fli_kv_md.jpg) no-repeat -200px 0 fixed;
+}
+.fli_big_title {
+	width: 384px;
+	padding: 20px;
+	background-color: rgba(255, 255, 255, 0.8);
+	position: absolute;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	top: 50%;
+}
+/*TAB*/
+.etabs {
+	width: 768px;
+	overflow: hidden;
+	display: block;
+	position: relative;
+	margin: 0 auto;
+	padding: 20px 0;
+}
+.formdown a {
+	width: 75%;
+}
+.thicnt li:nth-child(3) {
+	padding-left: 35px;
+}
+.tryout {
+	display: none;
+}
+.tryout_m {
+	width: 100%;
+	display: block;
+	overflow: hidden;
+	margin-top: 24px;
+}
+}
+ @media screen and (max-width:576px) {
+.thi_wrap {
+	width: 95%;
+}
+.formdown a {
+	width: 85%;
+	font-size: 12px;
+	line-height: 1.25rem;
+}
+.thicnt ul {
+	padding: 12px 0;
+}
+.thicnt li {
+	width: calc(19.999% - 12px);
+	margin-right: 10px;
+	font-size: 12px;
+	line-height: 18px;
+	text-align: center;
+	vertical-align: -moz-middle-with-baseline;
+}
+.thicnt li span {
+	width: 11px;
+	height: 11px;
+	
+	margin: 0 auto;
+	display: inline-block;
+	margin-right: 5px;
+}
+.thicnt li:nth-child(3) {
+	text-align: center;
+	padding-left: 0px;
+}
+}
+ @media screen and (max-width:480px) {
+/*Header Banner 
+ -------------------------------------------------------------------------*/ 
+.filmt_banner {
+	display: table;
+	height: 500px;
+	width: 100%;
+	position: relative;
+	background: url(https://xyzofficialweb.blob.core.windows.net/xyz-events/filament/img/fli_kv_s.jpg) no-repeat center -200px fixed;
+}
+.banner_txt {
+	max-width: 90%;
+	margin: 0 auto;
+	overflow: hidden;
+	height: 100%;
+}
+.fli_big_title {
+	width: 90%;
+	padding: 20px;
+	background-color: rgba(255, 255, 255, 0.8);
+	position: absolute;
+	top: unset;
+	bottom: 10px;
+	transform: none;
+}
+/*TAB*/
+.etabs {
+	width: 95%;
+	overflow: hidden;
+	display: block;
+	position: relative;
+	margin: 0 auto;
+	padding: 20px 0;
+}
+.tab {
+	display: inline-block; /*zoom:1; *display:inline; */
+	width: calc( 49.99% - 20px );
+	border-right: none;
+	background-color: #fff;
+	margin: 5px;
+}
+.tab a {
+	font-size: 18px;
+	line-height: 2;
+	display: block;
+	padding: 0;
+	outline: none;
+	color: #333;
+}
+.tab a:hover {
+	text-decoration: none;
+	color: #333;
+}
+.tab.active {
+	background: #fff;
+	padding-top: 0px;
+	position: relative;
+}
+.tab-container {
+	width: 100%;
+	background-color: #e9e9e9;
+}
+.tab-stuf {
+	width: 100%;
+	overflow: hidden;
+	display: block;
+	position: relative;
+}
+.tab-stuf h3, .tab-stuf h3 a {
+	line-height: 2;
+}
+.stuf_line2 {
+	display: block;
+	width: 50px;
+	height: 3px;
+	background-color: #fff;
+	margin: 8px auto;
+}
+.tab-stuf img {
+	margin: 16px auto;
+	display: flex;
+	opacity: 1;
+	width: 85%;
+}
+.thi_wrap {
+	display: none;
+}
+.thi_mo {
+	display: block;
+	overflow: hidden;
+	position: relative;
+	width: 95%;
+	margin: 0 auto;
+}
+.thi_mo ul {
+	border-bottom: 1px solid #d9d9d9;
+	padding: 18px 0;
+}
+.thi_mo li {
+	display: block;
+	width: 100%;
+	font-size: 15px;
+	line-height: 30px;
+	margin-top: 8px;
+}
+.thi_mo li span {
+	width: 14px;
+	height: 14px;
+	display: block;
+	display: inline-block;
+	margin-right: 6px;
+}
+.moL {
+	display: inline-block;
+	width: calc( 39.999% - 10px);
+	margin-right: 10px;
+	background: #333;
+	color: rgba(255,255,255,.85);
+	text-align: center;
+}
+.moR b {
+	font-size: 18px;
+	font-weight: 600;
+}
+.moR {
+	display: inline-block;
+	width: 59%;
+	color: #333;
+	text-align: left;
+}
+.moR a, .moR a:hover {
+	color: rgba(231,3,7,1.00);
+	text-decoration: underline;
+}
+}
+ @media screen and (max-width:415px) {
+.moR {
+	display: inline-block;
+	width: 50%;
+	color: #333;
+	text-align: left;
+}
+}

@@ -1,0 +1,408 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, form, input, textarea, p, th, td ,section, article, footer {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: Roboto,Arial,Helvetica,sans-serif;
+    font-size:16px;
+	position: relative;
+}
+
+/* Reset */
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* Clearfix hack */
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+table { border-collapse: collapse; border-spacing: 0;}
+
+section, article, footer{ display:block;}
+
+img { border: 0; }
+
+img a{ max-width:100%;}
+
+ul, ol, li { list-style-type:none; list-style-image: none;}
+
+hr { border:none; border-top: 1px solid #666; height: 1px;}
+
+strong {font-weight:bold;}
+
+a:link, a:visited , a:active{ text-decoration: none; outline: 0;}
+
+a:hover { text-decoration: none; outline: 0;}
+
+.maker_main{ display: block; width: 1100px;  margin: 0 auto;}
+
+/*XYZmaker Suite 
+ -------------------------------------------*/ 
+.mkr_suite {
+  display: table;
+  height: 400px;/*100%*/
+  width: 100%;
+  position: relative;  
+  background: url(https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/software/makersuite/mkr_b_hdr.jpg) no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+}
+
+.mkr_cnt{ display:inline-block; overflow: hidden; color: #333; }
+.mkr_cnt h2{ font-size: 36px; margin-top: 100px; font-family: Roboto,Arial,Helvetica,sans-serif;font-weight: normal;margin-bottom: 10px;}
+.mkr_cnt h2 b{ font-weight: bold;}
+.mkr_cnt h3{ font-size: 1.2rem;line-height: 1.5; margin-bottom: 1rem;/*margin-top: 10px;*/font-family: 'Poppins', sans-serif, '微軟正黑體'; font-weight:600;}
+.mkr_cnt p{ margin: 0 auto;font-size:.9rem;letter-spacing: .03rem; line-height: 1.4; width: 54%; padding: 0 0 16px 0;}
+
+.mkr_cnt span{font-family: 'Poppins', sans-serif, '微軟正黑體'; font-weight: 600; margin-left: 10px;}
+.cta{ display: inline-block;}
+.cta a img{ display: inline-block; display: block; float: right; margin-left: 10px; margin-top: 6px;}
+
+/*XYZmaker
+ -------------------------------------------*/ 
+.xyzmk , .xyzprt,.xyzen ,.xyzscan{
+  display: table;
+  height: 100%;
+  width: 100%;
+  position: relative;  
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: left;
+}
+
+.xyzmk { background: url(https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/software/makersuite/mkr_b1.jpg) no-repeat 0 0;}
+.xyzprt {background:  url(https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/software/makersuite/mkr_b02.jpg)0 0;}
+.xyzen{ background: url(https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/software/makersuite/mkr_b3.jpg) no-repeat 0 0;}
+.xyzscan{ background: url(https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/software/makersuite/mkr_b4.jpg) no-repeat 0 0;}
+
+.softA{ display:block; width: 65%; margin: 0 auto; overflow: hidden; font-family: Roboto,Arial,Helvetica,sans-serif;}
+.softA_icon{ width: 160px; float: left;  margin-right: 60px; clear: both; }
+.softB_icon{ width: 178px; float: left;  margin-right: 40px; clear: both; border: 1px solid hsla(0,0%,87%,1.00); }
+.softA_icon img, .softB_icon img{ max-width: 100%; }
+.softA h2{font-size: 36px; color: #fff; font-family: Roboto,Arial,Helvetica,sans-serif; font-weight: normal;margin-bottom: 10px;}
+.softA h3,.prt h3{font-size: 1.2rem;line-height: 1.5; margin-bottom: 1rem;/*margin-top: 10px;*/font-family: 'Poppins', sans-serif, '微軟正黑體';font-weight:600; }
+.softA p,.prt p{ font-size:.9rem;letter-spacing: .03rem; line-height: 1.4; padding-top: 0px;color: #fff; }
+.txtpadding{ padding-right: 100px; color: #333;}
+.boxmg{ margin-bottom: 110px; margin-top: 90px;}
+.boxmg2{ margin-bottom: 40px;}
+
+
+.gotoDo ,.gotoDe{ 
+  /*float:right; */
+  display: inline-block;
+  padding:8px 16px;
+  font-size:15px;
+  line-height:20px;
+  letter-spacing: 1px;
+  color: #fff;
+  margin:15px 0 0 0;
+	text-decoration: none;
+  /*transition: color 0.5s ease-out,
+              background-color 0.5s ease-out;*/
+}
+
+.gotoDo{ 
+  background-color: #f02323; 
+}
+
+.gotoDe{ 
+  background-color: #f02323; 
+}
+
+
+.gotoDo:hover,
+.gotoDo:active, .gotoDo:visited {
+  background-color: #f02323;
+  color: #fff; 
+	text-decoration: none;
+  /*transition: color 0.5s ease-in,
+              background-color 0.5s ease-in;*/
+}
+.gotoDe:hover,
+.gotoDe:active, .gotoDe:visited {
+  background-color: #f02323;
+  color: #fff; 
+	text-decoration: none;
+  /*transition: color 0.5s ease-in,
+              background-color 0.5s ease-in;*/
+}
+
+.mgr{ margin-right: 16px;}
+
+.detailBox {
+  /*display: none;*/
+  clear: both;
+  display: block;
+}
+
+a.gotoDe.detailBtn{display: none}
+
+ 
+
+    
+
+/*XYZprint
+ -------------------------------------------*/ 
+.prt{ display: block;color: white; float: left; width: 50%; margin: 34px 0 16px 0; padding: 0 20px;  text-align: left; /*position:relative;*/}
+.prt img{ max-width: 100%; margin: 0 auto; margin-top: 6px;/*position: relative; left: 50%; margin-left: -197px;*/}
+.widfull{ width: 90%;}
+.prt h3, .prt p{ color: white;}
+.prt-txt{ margin-top: 265px;}
+.objC{display: block; overflow: hidden; width: 396px; margin: -12px auto 30px auto ; margin-top: -12px;}
+.objC li{ display: inline-block; width: 129px; color: white; text-align: center;font-size: 14px;}
+
+.prtimgA,.prtimgB{ display: none;}
+.forM{ display: none;}
+.forPC{ display: block;}
+
+.pdL{padding-left:30px;}
+
+/*XYZengraver
+ -------------------------------------------*/
+.prt-en{ margin-left: 50%; margin-top: 140px; margin-bottom: 150px; width: 45%;}
+
+/*XYZscan Color
+ -------------------------------------------*/
+.prt-sc{ margin-left: 48%; margin-top:85px; width:50%;}
+.scan3D{ width: 100%; overflow: hidden; margin-top: 24px;}
+.scan3D li{ display: inline-block; margin-right: 5px;}
+.scan3D li img{ max-width: 100%;}
+.scan3D li p{color: white; text-align: center;font-size: 14px; }
+.scanstep{ width: 14px;height: 14px; background-image: url(https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/software/makersuite/arr2.png); }
+.noR{ margin-right: 0;}
+
+
+
+
+/*=====================  RWD  ==========================*/
+
+
+@media screen and (max-width:1024px){
+.maker_main{ display: block; width:100%;  margin: 0 auto; }
+.prt{ padding: 0;  }
+.pdL{padding-left:34px;}
+}
+
+@media screen and (max-width:768px){
+.mkr_suite { height: 360px; }
+.pdL{padding-left:0px;}
+	
+/*XYZmaker
+ -------------------------------------------*/ 
+.xyzmk , .xyzprt,.xyzen ,.xyzscan{
+  display: table;
+  height: 100%;
+  width: 100%;
+  position: relative;  
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: left;
+}
+
+.xyzmk { background: url(https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/software/makersuite/mkr_b1.jpg) no-repeat -180px 0;}
+.xyzprt {background: url(https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/software/makersuite/mkr_b02.jpg) no-repeat -250px 0;}
+.xyzen{ background: url(https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/software/makersuite/mkr_b3.jpg) no-repeat -125px 0;}
+.xyzscan{ background: url(https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/software/makersuite/mkr_b4.jpg) no-repeat -170px 0;}
+	
+.softA{ display:block; width: 85%; margin: 0 auto; overflow: auto; font-family: Roboto,Arial,Helvetica,sans-serif;}
+.softA h3,.prt h3{font-size: 16px;  }
+.softA p,.prt p{ font-size: .9rem; letter-spacing: .03rem; line-height: 1.4;  /*padding-top: 16px;*/}
+.boxmg{ margin-bottom: 110px; margin-top: 75px;}
+.boxmg2{ margin-bottom: 40px;}
+	
+/*XYZprint
+ -------------------------------------------*/ 
+.prt{ display: block;color: white; float: left; width: 50%; margin: 34px 0; padding: 0 10px;  }
+.prt img{ max-width: 100%; margin: 0 auto; margin-top: 6px;}
+
+.prt-txt{ margin-top: 250px;}
+.objC{display: block; overflow: auto; width: 306px; margin: -12px auto 30px auto ; margin-top: -12px;}
+.objC li{ display: inline-block; width: 98px; color: white; text-align: center;font-size: .8rem;}
+
+/*XYZengraver
+ -------------------------------------------*/
+.prt-en{ display: block; margin-left: 50%; margin-top: 150px; margin-bottom: 130px; width: 45%;}
+	
+/*XYZscan Color
+ -------------------------------------------*/
+.prt-sc{ display: block;margin-left:35%; margin-top:70px; width:495px;}
+.scan3D li{ display: inline-block; margin-right: 2px;}
+.scan3D li p{color: white; text-align: center;font-size: 13px; }
+.scan3D li img{ max-width:110px;}
+}
+
+@media screen and (max-width:480px){
+	
+.maker_main{ display: block; width: 100%;  margin: 0 auto; }
+.detailBtn{ opacity: 0;  visibility:hidden; height: 0;}	
+.detailBox { display: block; clear: both;}
+.mgr200{ margin: 250px 0 0 0;}
+.scanstep{ width: 0px;height: 0px;}
+/*XYZmaker Suite 
+ -------------------------------------------*/ 
+.mkr_suite { 
+  height: 620px;  
+  background: url(https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/software/makersuite/m/m_hdr.jpg) no-repeat center center;   
+}
+
+.mkr_cnt{ display:inline-block;  width: 90%; margin-top: 40px; }
+.mkr_cnt h2{ font-size: 36px; margin-top: 100px; }
+.mkr_cnt h3{ font-size: 1.2rem;line-height: 1.5; margin-bottom: 1rem; margin-top: 10px;}
+.mkr_cnt p{ font-size: .9rem; letter-spacing: .03rem; line-height: 1.4; width: 100%; padding: 0 0 16px 0;}
+.cta{ display: block;}	
+/*XYZmaker
+ -------------------------------------------*/ 
+.xyzmk , .xyzprt,.xyzen ,.xyzscan{
+  display: table;
+  height: 100%;
+  width: 100%;
+  position: relative;  
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: left;
+}
+
+.xyzmk { background: url(https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/software/makersuite/m/mkr_b1m.jpg) no-repeat 0 240px;}
+.xyzprt {background: none; background-color: #6c6c6c;}
+.xyzen{ background: none; background-color: #000;}
+.xyzscan{ background: none; background-color: #5e5e5e;}
+
+.softA{ display:block; width:85%; margin: 0 auto; overflow: hidden; }
+.softA_icon{ width: 160px; float: none;  margin-right: 0px; clear: both; margin: 25px auto; }
+.softB_icon{ width: 178px; float: none;  margin-right: 0px; clear: both; border: 1px solid hsla(0,0%,87%,1.00);margin: 0 auto; }
+
+.softA h2{font-size: 36px; text-align: center; }
+.softA h3,.prt h3{font-size: 1.2rem;line-height: 1.5; margin-bottom: 1rem; text-align: center; padding-top: 10px; }
+.softA p,.prt p{ font-size: .9rem; letter-spacing: 0rem; line-height: 1.4;  padding-top: 0px;color: #fff; }
+.txtpadding{ padding-right: 0px; color: #333;}
+.boxmg{ margin-bottom: 30px; margin-top: 30px;}
+.boxmg2{ margin-bottom: 40px;}
+
+.gotoDo ,.gotoDe{ display: block; width: 240px; text-align: center; margin:25px auto 0 auto; }
+
+
+	
+/*XYZprint
+ -------------------------------------------*/ 
+.prt{ display: block;color: white; float: none; width: 100%; margin: 34px 0; padding: 0 20px;   }
+.prt img{ max-width: 100%; margin: 0 auto; margin-top: 6px;}
+.widfull{ width: 100%;}
+.prt h3, .prt p{ color: white;}
+.prt-txt{ margin-top:0px; width: 90%; margin: 0 auto;}
+.objC{display: block; overflow: auto; width: 100%; margin: -12px auto 42px auto ; margin-top: -12px;}
+.objC li{ display: inline-block; width: 30%; color: white; text-align: center;font-size: 13px;}
+
+.prtimgA{display: block; margin:20px auto 40px auto ; width: 90%; }
+.prtimgB{display: block; margin:16px auto 0 auto; width: 100%; }
+.prtimgA img{ max-width: 100%; }
+.prtimgB img{ max-width: 100%; }
+	
+.forM{ display: block;}
+.forPC{ display: none;}
+	
+.midd{ left: 50%; margin-left: -105px; position: relative;}
+	
+/*XYZengraver
+ -------------------------------------------*/
+.prt-en{ width: 90%; margin: 40px auto;}
+
+	
+/*XYZscan Color
+ -------------------------------------------*/
+.scan_mg01{ margin-top: -75px;}
+.prt-sc{ margin-left: 0; margin-top:30px; width:100%;}
+.scan3D{ width: 100%; overflow: auto; margin-top: 24px;}
+.scan3D li{ display:block; margin-right:0; margin-bottom: 30px;}
+.scan3D li img{ max-width: 100%;left: 50%; margin-left: -70px; position: relative;}
+.scan3D li p{color: white; text-align: center;font-size: 13px; }
+.scanstep{ display: none;}
+.noR{ margin-right: 0;}
+	
+}
+
+@media screen and (max-width:415px){
+.objC li{  width: calc( 33.333% - 3px);font-size: 12px;}	
+}
+
+/*objC 20180920*/
+.objC_wrap{ width:100%; overflow:hidden; display:block; margin:20px auto 30px auto;}
+.objC_wrap li{ display:block; float:left; width: calc( 33.333% - 13px ); margin:0 5px; position:relative;}
+.objC_wrap li img{ position: inherit; margin: 6px auto; max-width:80px;max-width: 80px;left: 50%;margin-left: -40px;}
+.objCtxt{ display:block; width:100%; font-size:.9rem;letter-spacing: .03rem; line-height: 1.4; padding-top: 0px;color: #fff; text-align:center;}
+@media screen and (max-width:480px){.objCtxt{ font-size:.8rem;letter-spacing: .02rem; line-height: 1.4; }}
+
+
+/*2020.03*/
+/*XYZmaker Suite 
+ -------------------------------------------*/ 
+.suite_2020{overflow: hidden;}
+.suite_2020 .mkr_suite {
+  background: url('https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/software/makersuite2020/mkr_b_hdr.jpg') no-repeat center center;
+  background-size: cover;
+}
+.suite_2020 .mkr_cnt h2{ margin-top:0;}
+.suite_2020 .xyzmk { background: url('https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/software/makersuite2020/mkr_b1.jpg') no-repeat center; background-size: cover; padding-bottom: 55px;}
+.suite_2020 .softB_icon{ width: 178px; flex-shrink: 0; border: 1px solid hsla(0,0%,87%,1.00); }
+
+/*=====================  RWD  ==========================*/
+@media screen and (max-width:768px){    
+.suite_2020 .softA{ padding: 0 7.5%; width: 100%;}
+    
+/*XYZprint
+ -------------------------------------------*/ 
+.suite_2020 .prt-en {width: 45%;padding: 0 10px;}
+.suite_2020 .prt-txt {margin-top: 282px;}
+.suite_2020 .prt-sc{width: 495px;}
+}
+
+@media screen and (max-width:480px){
+
+/*XYZmaker Suite 
+ -------------------------------------------*/ 
+.suite_2020 .mkr_suite { 
+  background: url('https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/software/makersuite2020/m_hdr.jpg') no-repeat center center;   
+}
+.suite_2020 .mkr_cnt{ display:inline-block;  width: 90%; margin-top:0;}
+
+/*XYZmaker
+ -------------------------------------------*/ 
+.suite_2020 .xyzmk{background-image: none; padding-bottom: 0;}
+.suite_2020 .xyzmk > .softA {
+    background: url('https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/software/makersuite2020/mkr_b1m.jpg') no-repeat 0 bottom;
+    padding-bottom: 180px;
+    background-size: 110%;
+}
+.suite_2020 .softB_icon{ width: 200px;}
+.suite_2020 .boxmg{ padding-bottom: 30px; padding-top: 30px; margin-top:0; margin-bottom:0;}
+
+/*XYZprint
+ -------------------------------------------*/ 
+.suite_2020 .prt{ margin: 34px 0; padding: 0 7.5%;}
+.suite_2020 .prt-txt, .suite_2020 .prt-sc{width:100%;}
+
+/*XYZengraver
+ -------------------------------------------*/
+.suite_2020 .prt-en{ width: 100%; padding: 0 7.5%;}    
+}

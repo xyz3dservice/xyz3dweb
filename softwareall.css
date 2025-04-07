@@ -1,0 +1,448 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, form, input, textarea, p, th, td ,section, article, footer {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: Roboto,Arial,Helvetica,sans-serif;
+    font-size:16px;
+	position: relative;
+}
+
+/* Reset */
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* Clearfix hack */
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+table { border-collapse: collapse; border-spacing: 0;}
+
+section, article, footer{ display:block;}
+
+img { border: 0; }
+
+img a{ max-width:100%;}
+
+ul, ol, li { list-style-type:none; list-style-image: none;}
+
+hr { border:none; border-top: 1px solid #666; height: 1px;}
+
+strong {font-weight:bold;}
+
+a:link, a:visited , a:active{ text-decoration: none; outline: 0;}
+
+a:hover { text-decoration: none; outline: 0;}
+
+.swall_wrap{ display: block; width: 1100px;  margin: 0 auto; position: relative; padding: 0;}
+.swall_wrap .mb100{ margin-bottom: 100px;}
+.swall_wrap .mt240{ margin-top: 240px;}
+
+/*Software Head 
+ -------------------------------------------------------------------------*/ 
+.swall_banner {
+  display: table;
+  height: 400px;/*100%*/
+  width: 100%;
+  position: relative;
+	background: url( https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/software/makermobile/mkr_mb_01bg.jpg) no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
+}
+
+.swall_head{ display:inline-block; overflow: hidden; color: #fff; }
+.swall_head h2{ font-size: 36px; margin-top: 100px; font-family: Roboto,Arial,Helvetica,sans-serif;font-weight: normal;}
+.swall_head h2 b{ font-weight: bold;}
+.swall_head h3{ font-size: 1.2rem;line-height: 1.5;margin-bottom: 1rem; font-family: 'Poppins', sans-serif, '微軟正黑體'; font-weight:bold;}
+.swall_head p{ margin: 0 auto;font-size: .9rem;letter-spacing: .03rem; line-height: 1.4; width: 75%; padding: 8px 0 16px 0;}
+.swall_head h4{ margin: 0 auto;font-size: .9rem;letter-spacing: .03rem; line-height: 1.4;  padding: 8px 0 16px 0;font-weight: normal;}
+
+.swall_head span{font-family:Century Gothic; font-weight: 600; margin-left: 10px;}
+.swallcta{
+  text-align: center;
+  display: inline-block;
+  padding:8px 16px;
+  font-size:15px;
+  line-height:20px;
+  letter-spacing: 1px;
+  color: #fff;
+  margin:15px 0 0 0;
+  text-decoration: none;
+	background-color:hsla(0,87%,54%,1);
+  transition: color 0.5s ease-out,
+  background-color 0.5s ease-out;
+}
+
+.swallcta:focus {
+  background-color: hsla(0,91%,42%,1);
+  color: #fff; 
+	text-decoration: none;
+  transition: color 0.5s ease-in,
+              background-color 0.5s ease-in;
+}
+
+.swallcta:visited {
+  text-decoration: none;
+  background-color:hsla(0,87%,54%,1);
+}
+
+.swallcta:hover {
+  background-color: hsla(0,91%,42%,1);
+  color: #fff; 
+  text-decoration: none;
+  transition: color 0.5s ease-in,
+              background-color 0.5s ease-in;
+}
+
+.swallcta:active{
+  text-decoration: none;
+  background-color:hsla(0,87%,54%,1);
+}
+
+
+
+
+
+.mgrit{ margin-right: 16px;}
+
+
+/*Software Content
+ --------------------------------------------------------------------------*/ 
+.swall_cnt{position: relative; width: 1100px;  margin: 0 auto; overflow: hidden; }
+.swall_cnt_text{ display: inline-block; width: 50%;color: #333;  padding:0 60px;}
+.settheht{height: auto;}
+
+.swall_cnt_text h4{font-size: 1.2rem;line-height: 1.5;font-family: 'Poppins', sans-serif, '微軟正黑體';font-weight:600; padding-top: 19%; margin-bottom: 1rem; }
+.swall_cnt_text p{ font-size: .9rem;letter-spacing: .03rem; line-height: 1.4; }
+.swall_cnt_text img{ width: auto; margin-top: 24px; padding: 0 40px 0 0;}
+.imgright{ float: right;}
+.setbackcolor{ background: #e3e1e2;}
+
+
+.mkr_mobile_padA{ position: absolute; width: 630px; float: right; z-index: 1; right: 0; margin-top: -77px;}
+.mkr_mobile_padA_m{ display: none;}
+.mkr_mobile_padA img , .mkr_mobile_padA_m img {max-width: 100%;} 
+
+/*03*/
+.swall_show{ display: inline-block; width: 50%; padding: 0;}
+.swall_show img{ width: 100%; vertical-align: middle;}
+.frr{ float:right;}
+.frl{ float:left;}
+.swall_show_m,.areaone_show_m{ display:none;}
+
+/*04*/
+.mkr_mobile_learn_banner {
+  display: table;
+  height: 400px;/*100%*/
+  width: 100%;
+  position: relative;  
+  background: url( https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/software/makermobile/mkr_mb_04bg.jpg) no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.swall_learn{ display: inline-block; width: 45%; padding:30px 0;}
+.swall_learn img{ max-width: 100%; vertical-align: middle;}
+a img.imgdebug{ margin-top: 0; padding: 0;}/*for learn youtube*/
+
+/*05*/
+.mkr_mobile_car{ display:inline-block;position: absolute; width: 540px;  z-index:2; left:40px; margin-top:-140px; padding-bottom:16px;}
+.mkr_mobile_car img{ max-width:100%;}
+
+
+
+
+/*ScanHandy 
+ -------------------------------------------------------------------------------------------------------------------------------*/ 
+.area_sw{ display: block; overflow: hidden; background: #fff; position: relative; }
+.hdytopA{ margin-top: -124px;}
+
+.schd{ display:block; overflow: hidden; color: #333; width: 50%; vertical-align: top; padding-left: 60px; position: absolute;}
+.schd h2{ font-size: 36px; margin-top: 70px; font-family: Roboto,Arial,Helvetica,sans-serif;font-weight: normal;}
+.schd h2 b{ font-weight: bold;}
+.schd h3{ font-size: 1.2rem;line-height: 1.5;margin-bottom: 1rem; font-family: 'Poppins', sans-serif, '微軟正黑體'; font-weight:bold;}
+.schd p{ margin: 0 auto;font-size: .9rem;letter-spacing: .03rem; line-height: 1.4;  padding: 8px 0 16px 0;font-weight: normal;}
+.schd span { font-family: 'Poppins', sans-serif, '微軟正黑體';font-weight: 600; margin-left: 10px;}
+
+.areaone_show{ display: block; width:65%; padding: 0; margin-left: 450px;}
+.areaone_show img{ width: 100%; vertical-align: top; }
+
+/*.sch_nb{ position: absolute; width: 549px; float: right; z-index: 1; right: 0; margin-top: -124px;}*/
+.sch_nb{ position: absolute; width: 549px; float: right; z-index: 1; right: 0; margin-top: -84px;}
+.sch_fcd{ position: absolute; width: 550px; float: right; z-index: 1; right:16px; margin-top: -100px;}
+.sch_nb_m,.sch_fcd_m{ display: none;}
+.sch_nb img , .sch_nb_m img,.sch_fcd img , .sch_fcd_m img {max-width: 100%;} 
+.handyfour{ margin-top: 111px;}
+.dinos{  width: 360px; margin:70px 0 0 100px;}
+.dinos img{ max-width: 100%;}
+
+
+
+/*XYZware Nobel
+ -------------------------------------------------------------------------------------------------------------------------------*/ 
+.nbl-35{width: 35%;}
+.nblone{display: block;  padding: 0; overflow: hidden;  width: 100%;}
+.nblone img{width: 100%; vertical-align: top;}
+.nblone_m,.nblone_s{ display: none;}
+.nbl_3th{ background: linear-gradient(#eaeaea,#fff); margin-bottom: 5rem;}
+.nbl_pur{position: absolute; width: 500px; float: right; z-index: 1; right:3.5rem; margin-top: -90px; }
+.nbl_pur img , .nbl_pur_m img {max-width: 100%;} 
+.nbl_ui{ display: inline-block; width: 50%; padding: 0 0 0 2.5rem;}
+.nbl_ui img{ width: 100%; }
+.nbl_pur_m,.nbl_ui_m{ display: none;}
+
+
+/*=== RWD ========================================================================================================*/
+
+@media screen and (max-width:1024px){
+.swall_wrap,.swall_cnt{  width:100%;position: relative;}
+.mkr_mobile_padA{ width: 590px; float: right; z-index: 1; right: 0; margin-top: -57px;}
+.mkr_mobile_car{ width: 500px;  z-index:2; left:40px; margin-top:-130px;}	
+
+
+/*ScanHandy----------------------------------------------------------------------------------------- */ 
+.sch_nb{ position: absolute; width: 50%; float: right; z-index: 1; right: 0; margin-top: -100px;}
+.sch_fcd{ position: absolute; width:480px; float: right; z-index: 1; right: 36px; margin-top: -90px;}
+.handyfour{ margin-top: 114px;}
+}
+
+
+@media screen and (max-width:768px){
+.swall_wrap,.swall_cnt{  width:100%;position: relative;}
+.swall_wrap .mt240{ margin-top: 130px;}
+
+.mkr_mobile_padA{ width: 500px; float: right; z-index: 1; right:-60px; margin-top: -63px;}
+.swall_cnt_text{ display: inline-block; width: 50%;color: #333;  padding:0 30px;}
+.swall_cnt_text h4{font-size: 1.2rem;line-height: 1.5; padding-top:10%; margin-bottom: 1rem; }
+.swall_cnt_text p{ font-size: .9rem;letter-spacing:.03rem; line-height: 1.4; padding-top: 8px; }
+.swall_cnt_text img{ width: 60%; margin-top: 34px; padding: 0 34px 30px 0;}
+
+.mkr_mobile_learn_banner {height: 340px;}
+a img.imgdebug{ margin-top: 0; padding: 0; width:5px;}/*for learn youtube*/	
+
+.mkr_mobile_car{ width:360px;  z-index:2; left:40px; margin-top:-110px;}
+	
+	
+/*ScanHandy----------------------------------------------------------------------------------- */ 
+.areaone_show{ display: inline-block; width: 85%; padding: 0; margin-left: 320px;}
+.sch_nb{ position: absolute; width: 50%; float: right; z-index: 1; right: 0; margin-top:-16px;}
+.sch_fcd{ position: absolute; width:360px; float: right; z-index: 1; right: 36px; margin-top: -20px;}
+.dinos{  width: 330px; margin:70px 0 0 50px;}
+	
+	
+/*XYZware Nobel
+ -------------------------------------------------------------------------------------------------------------------------------*/ 
+.nbl-35{width: 43%; padding-left: 35px;}
+.schd h2{ margin-top: 55px; }
+.nblone_m{display: block;  padding: 0; overflow: hidden;  width: 100%;}
+.nblone_m img{width: 100%; vertical-align: top;}
+.nblone_s,.nblone{ display: none;}
+.nbl_3th{ background: linear-gradient(#eaeaea,#fff); margin-bottom: 5rem;}
+.nbl_pur{width: 350px; float: right; z-index: 1; right:2rem; margin-top: -32px; }
+
+}
+
+ 
+
+@media screen and (max-width:480px){
+	
+/*Software- -------------------------------------------------------------------------*/ 
+.swall_wrap .mt240{ margin-top: 340px;}
+.swall_banner {
+  display: table;
+  height: 600px;
+  width: 100%;
+  position: relative;  
+  background: url( https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/software/makermobile/mkr_mb_01bg_m.jpg) no-repeat center center;   
+}
+.swall_head p{ font-size:13px;letter-spacing: .05rem; line-height: 1.4; width: 85%; padding: 8px 0 16px 0;}	
+.mkr_mobile_padA{ display: none;}
+.mkr_mobile_padA_m{ display: block; width: 480px; }
+.mkr_mobile_padA_m img{ vertical-align: middle;}
+.swall_cnt_text{ display: block; width:100%; padding:0 30px; margin: 40px auto;}
+.swall_cnt_text img{ width: 50%; margin-top: 20px; padding: 0;}
+.swall_cnt_text h4{padding-top:5%; }/*20181101*/
+	
+/*03*/
+.swall_show{ display:none;}
+.swall_show_m{ display:block; width: 100%; padding: 0; }
+.swall_show_m img{ width: 100%; vertical-align: middle;margin-top:0px;}
+
+/*04*/
+.mkr_mobile_learn_banner {height: 100%;}
+.swall_learn{ display: block; width: 80%; padding:0 0 30px 0;margin: 0 auto;}
+.swall_learn img{ max-width: 100%; vertical-align: baseline;  }
+
+/*05*/
+.mkr_mobile_car{ display:block; width: 80%;  z-index:2; left:20px; margin-top:200px; padding-bottom:16px;}
+.mkr_mobile_car img{ max-width:100%;}
+
+	
+/*ScanHandy---------------------------------------------------------------------------------------------------- */ 
+.hdytopA{ margin-top: -124px;}
+.schd{ display:block; width: 100%; padding:24px; position: relative; text-align: center;}
+.schd h2{ font-size: 36px; margin-top: 32px; }
+.areaone_show{ width:100%;  margin-left: 0; }
+.areaone_show img{ width: 100%; vertical-align: top; }
+.sch_nb,.sch_fcd{ display: none;}
+.sch_nb_m{ display: block;width: 100%;margin-top: 0px;}
+.sch_fcd_m{ display: block;width: 80%;margin: 0 auto;}
+.sch_nb img , .sch_nb_m img,.sch_fcd img , .sch_fcd_m img {max-width: 100%; vertical-align: top;} 
+.handyfour{ margin-top:0px;}
+.dinos{  width: 330px; margin:20px 0 0 50px;}
+	
+
+/*Nobel----------------------------------------------------------------------------------------------------*/
+.nblone,.nblone_m , .nbl_pur,.nbl_ui{ display: none;}
+.nblone_s{ display: block; width: 100%;}
+.nbl_ui_m,.nbl_pur_m{ display: block;width: 90%;margin: 0 auto;}
+.nblone_s img,.nbl_pur_m img,.nbl_ui_m img{ max-width: 100%;}
+.nbl_3th{ background: linear-gradient(#eaeaea,#fff); margin-bottom: -30px;}
+}
+
+
+@media screen and (max-width:415px){
+.swall_banner {
+  display: table;
+  height: 500px;
+  width: 100%;
+  position: relative;  
+  background: url( https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/software/makermobile/mkr_mb_01bg_m.jpg) no-repeat center -85px;   
+}
+.mkr_mobile_padA_m{ display: block; width: 430px; }
+/*05*/
+.mkr_mobile_car{ display:block;position: absolute; width: 88%;  z-index:2; left:20px; margin-top:210px; padding-bottom:16px;}
+	
+/*ScanHandy */
+.sch_fcd_m{ display: block;width: 80%;margin: -24px auto 0 auto;}
+.dinos{  width: 260px; margin:-24px 0 0 50px;}
+	}
+
+@media screen and (max-width:375px){
+.swallcta{  display: block; width: 90%; padding:8px 0; margin:15px auto 0 auto;}
+/*ScanHandy */
+.dinos{  width: 230px; margin:-24px 0 0 50px;}
+	}
+
+
+/*Spec
+ -------------------------------------------*/
+.sw_spec-wrp{ display: block; overflow: hidden; border-top: 1px solid #eee; z-index: 99; /*position: absolute;*/background: #fff;width: 1100px;  padding: 100px 0; text-align: left; margin: 200px auto 0 auto;}
+.sw_spectt{margin-bottom: 50px; font-size: 24px; font-weight: 600;color: #333; text-align: center;font-family: 'Poppins', sans-serif, '微軟正黑體'; }
+.sw_spec-wrp ul{ width: 80%; margin: 0 auto;}
+.sw_spec-wrp li{ float: left; margin: 0 15px; width: calc( 49.999% - 30px); overflow: hidden;font-family: 'Poppins', sans-serif, '微軟正黑體';}
+.sw_spec-wrp h3{margin: 40px 0 0 0; padding: 5px 0 0 0; font-size: 16px; font-weight:600; color: #cf1e1e;font-family: 'Poppins', sans-serif, '微軟正黑體';}
+.sw_spec-wrp h4{margin: 24px 0 0 0;font-size: 16px;padding: 5px 0 0 0; font-weight:600;color: #333; line-height: 24px;font-family: 'Poppins', sans-serif, '微軟正黑體';}
+.sw_spec-wrp p{font-size: 14px;color: #828282;line-height: 22px; font-family:Roboto,Arial,Helvetica,sans-serif;}
+.spec_top_hdy{margin: 64px auto 0 auto;}
+
+@media screen and (max-width:1024px){
+.sw_spec-wrp{ width: 95%;  margin: 180px auto 0 auto;}
+.spec_top_hdy{margin: 50px auto 0 auto;}
+}
+
+@media screen and (max-width:768px){
+.sw_spec-wrp{ width: 95%;  margin: 120px auto 0 auto;}
+.spec_top_hdy{margin: 30px auto 0 auto;}
+}
+
+@media screen and (max-width:576px){
+.sw_spec-wrp{ width: 95%;  margin: 30px auto 0 auto;}
+.sw_spec-wrp ul{ width: 100%; margin: 0 auto;}
+.sw_spec-wrp li{ float:none; margin:15px; width: 100%; overflow: auto;}
+.sw_spec-wrp h3{ margin: 20px 0 0 0; padding: 5px 0 0 0; }
+.sw_spec-wrp h4{margin: 10px 0 0 0;font-size: 16px;padding: 5px 0 0 0;  line-height: 24px;}	
+}
+
+@media screen and (max-width:480px){
+.sw_spec-wrp{width: 95%;  margin: 350px auto 0 auto; padding: 50px 0;}
+.sw_spectt{margin-bottom: 25px;}
+.spec_top_hdy{margin: 30px auto 0 auto;}
+}
+
+@media screen and (max-width:320px){
+.swall_wrap .mt240{ margin-top: 280px;}
+.sw_spec-wrp{ width: 95%;  margin: 300px auto 0 auto;}
+.spec_top_hdy{margin: 20px auto 0 auto;}
+}
+
+/*2020.03*/
+/*Software Content
+ --------------------------------------------------------------------------*/ 
+.xyz3dkit_2020 .settheht{
+  background: url(https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/software/makersuite2020/mkr_mb_02_pad.png) right bottom no-repeat;
+  background-size: 630px;
+  height: 380px;
+  overflow: visible;
+}
+.xyz3dkit_2020 .settheht .position-absolute{
+  right: 0;
+  bottom: 0;
+  width: 630px;
+}
+.xyz3dkit_2020 .mkr_mobile_padA{ position: absolute; width: 630px; float: right; z-index: 1; right: 0; margin-top: -56px;}
+
+/*03*/
+.xyz3dkit_2020 .sec3{
+   background: linear-gradient(to bottom, rgba(205,205,205,1) 0%,rgba(220,220,220,1) 30%,rgba(255,255,255,0.8) 100%),
+               url('https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/software/makersuite2020/sec3_bg.png');
+  background-position: center bottom;
+  background-repeat: no-repeat;
+
+}
+
+/*05*/
+.xyz3dkit_2020 .sec5.swall_cnt{ overflow: visible;}
+.xyz3dkit_2020 .mkr_mobile_car{ margin-top:-60px;}
+
+
+/*=== RWD ========================================================================================================*/
+
+@media screen and (max-width:1024px){
+  .xyz3dkit_2020 .mkr_mobile_car{ margin-top:-20px;}   
+}
+
+@media screen and (max-width:768px){
+  .xyz3dkit_2020 .swall_cnt_text p{ padding-top:0;}
+  .xyz3dkit_2020 .settheht{
+    height: auto;
+    background-size: 490px;
+  }
+  .xyz3dkit_2020 .settheht .position-absolute { width: 490px;}
+  .xyz3dkit_2020 .mkr_mobile_car{ left:25px; margin-top:0 ;}  
+}
+ 
+@media screen and (max-width:480px){
+  /*Software- -------------------------------------------------------------------------*/ 
+  .xyz3dkit_2020 .settheht {background:transparent;}
+}
+
+
+@media screen and (max-width:415px){
+  /*05*/
+  .xyz3dkit_2020 .mkr_mobile_car{ 
+    position: relative;
+    width: 90%;
+    left: 0;
+    margin: 0;
+    padding: 0;
+  }
+}

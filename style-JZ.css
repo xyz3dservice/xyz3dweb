@@ -1,0 +1,873 @@
+
+#custom-page .icon-arrow-red{
+  border: solid red;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+
+#custom-page .icon-right-red{
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+
+
+/*-----------------------------------
+da Vinci Jr_10_Pro_X
+-----------------------------------*/
+
+	#Jr_10_Pro_X h3{
+		font-size: 1.2rem;
+		line-height: 1.5rem;
+		margin-bottom: 0.5rem;
+	}
+
+	#Jr_10_Pro_X .btn{
+		margin-top: 0;
+		outline: none;
+	}
+
+	#Jr_10_Pro_X .card{
+		width: 100%;
+	}
+
+	#Jr_10_Pro_X .sec1_bgColor{
+		background: #ebebeb;
+	}
+
+	#Jr_10_Pro_X .sec1_bg_Img{
+		position: absolute;
+	}
+
+	#Jr_10_Pro_X .sec1_lg_Img{
+		margin-top: 200px;
+	}
+
+	#Jr_10_Pro_X .ml{
+		margin-left: 5rem;
+	}
+
+	#Jr_10_Pro_X .sec2_img{
+		margin-left: 5%
+	}
+
+	#Jr_10_Pro_X .sec2_content{
+		margin: 50px 0;
+	}
+
+	#Jr_10_Pro_X .sec2_bg{
+		background: linear-gradient(to bottom, #3a3a3a 0%, #454545 34%, #545454 62%, #595959 100%)!important;
+		height: 500px;
+	}
+
+	#Jr_10_Pro_X .sec3_bgColor{
+		background: linear-gradient(to bottom, #6d6d6d 0%, #878787 34%, #757575 62%, #595959 100%);
+	}
+
+	#Jr_10_Pro_X .sec4_bgColor{
+		background: linear-gradient(to bottom, #aeaeb0 0%, #c9c9ca 34%, #e6e6e7 62%, #fafafa 100%);
+	}
+
+	#Jr_10_Pro_X .sec4_mt{
+		margin-top: 4%;
+	}
+
+	#Jr_10_Pro_X .sec5_bgColor{
+		background: #000000;
+	}
+
+	#Jr_10_Pro_X .card-img-overlay{
+		padding-top: 5%;
+	}
+
+	/*#Jr_10_Pro_X .sec5_content_JP{
+		margin-top: 5%;
+	}
+
+	#Jr_10_Pro_X .sec5_content_US{
+		margin-top: 3%;
+	}*/
+
+	#Jr_10_Pro_X .jr10prox_hide{
+		display: none;
+	}
+
+	#Jr_10_Pro_X .jr10prox_show{
+		display: block;
+	}
+
+	#Jr_10_Pro_X .learn_more{
+		color: black!important;
+	}
+
+	#Jr_10_Pro_X .learn_more:hover{
+		text-decoration: underline!important;
+		cursor: pointer;
+	}
+
+	@media screen and (max-width: 1199px){
+		#Jr_10_Pro_X .sec4_mt{
+			margin-top: 0;
+		}
+	}
+
+
+	@media screen and (max-width: 1024px){
+		#Jr_10_Pro_X .sec2_img{
+			padding-top: 50px;
+		}
+
+		#Jr_10_Pro_X .sec2_bg{
+			height: auto;
+		}
+	}
+
+	@media screen and (max-width: 991px){
+		#Jr_10_Pro_X .ml{
+			margin-left: 3rem;
+		}
+
+		#Jr_10_Pro_X .sec3_md_Img{
+			margin-top: 100px;
+		}
+
+		/*#Jr_10_Pro_X .sec5_content_US{
+			margin-top: 0%;
+		}*/
+	}
+
+	@media screen and (max-width: 768px){
+		#Jr_10_Pro_X .sec2_content{
+			margin: 50px 0;
+		}
+
+		#Jr_10_Pro_X .sec2_img{
+			margin: 5% 0 5% 5%;
+			padding-bottom: 50px;
+		}
+
+		/*#Jr_10_Pro_X .sec5_content_JP{
+			margin-top: 2%;
+		}*/
+	}
+
+	@media screen and (max-width: 767px){
+		#Jr_10_Pro_X .row{
+			margin: 0%;
+		}
+
+		#Jr_10_Pro_X .my-col-12{
+			padding: 0!important;
+		}
+
+		#Jr_10_Pro_X h4{
+			font-size: 1.4rem;
+		}
+
+		#Jr_10_Pro_X .ml{
+			margin-left: 0rem;
+		}
+
+		#Jr_10_Pro_X .sec2_bg{
+			background: linear-gradient(to bottom, #3b3b3b 0%, #535353 40%, #595959 100%)!important;
+			padding: 5% 5%;
+		}
+		
+		#Jr_10_Pro_X .sec2_content{
+			margin: 40px 0;
+		}
+	}
+
+/*-----------------------------------
+da Vinci miniMaker V2
+-----------------------------------*/
+	#product_mini_maker_V2 .sec1{
+		height: 570px;
+	}
+
+	#product_mini_maker_V2 .sec1_lg_img{
+		width: 95%;
+		position: relative;
+		left: 8%;
+		z-index: 99;
+	}
+
+	@media screen and (max-width: 1024px){
+		#product_mini_maker_V2 .sec1{
+			height: 450px;
+		}
+
+		#product_mini_maker_V2 .opacity-bg{
+			background: rgba(255, 255, 255, 0.8);
+		}
+	}
+
+	@media screen and (max-width: 768px){
+		#product_mini_maker_V2 .bg-opacity-dark{
+			background: white!important;
+			color: black!important;
+		}
+
+		#product_mini_maker_V2 .sec1{
+			height: auto;
+		}
+
+		#product_mini_maker_V2 .sec1_lg_img{
+			position: static;
+		}
+	}
+
+/*-----------------------------------
+da Vinci Jr_10_Pro_Xe
+-----------------------------------*/
+	#Jr_10_Pro_Xe h3{
+		font-size: 1.2rem;
+		line-height: 1.5rem;
+		margin-bottom: 0.5rem;
+	}
+
+	#Jr_10_Pro_Xe .btn{
+		margin-top: 0;
+		outline: none;
+	}
+
+	#Jr_10_Pro_Xe .card{
+		width: 100%;
+	}
+
+	#Jr_10_Pro_Xe .sec1_bgColor{
+		background: #ebebeb;
+	}
+
+	#Jr_10_Pro_Xe .sec1_bg_Img{
+		position: absolute;
+	}
+
+	#Jr_10_Pro_Xe .sec1_lg_Img{
+		margin-top: 200px;
+	}
+
+	#Jr_10_Pro_Xe .ml{
+		margin-left: 5rem;
+	}
+
+	#Jr_10_Pro_Xe .sec2_img{
+		margin-left: 5%
+	}
+
+	#Jr_10_Pro_Xe .sec2_content{
+		margin: 50px 0;
+	}
+
+	#Jr_10_Pro_Xe .sec2_bg{
+		background: linear-gradient(to bottom, #3a3a3a 0%, #454545 34%, #545454 62%, #595959 100%)!important;
+		height: 500px;
+	}
+
+	#Jr_10_Pro_Xe .sec3_bgColor{
+		background: linear-gradient(to bottom, #6d6d6d 0%, #878787 34%, #757575 62%, #595959 100%);
+	}
+
+	#Jr_10_Pro_Xe .sec4_bgColor{
+		background: linear-gradient(to bottom, #aeaeb0 0%, #c9c9ca 34%, #e6e6e7 62%, #fafafa 100%);
+	}
+
+	#Jr_10_Pro_Xe .sec4_mt{
+		margin-top: 4%;
+	}
+
+	#Jr_10_Pro_Xe .sec5_bgColor{
+		background: #000000;
+	}
+
+	#Jr_10_Pro_Xe .card-img-overlay{
+		padding-top: 5%;
+	}
+
+	/*#Jr_10_Pro_Xe .sec5_content_JP{
+		margin-top: 5%;
+	}
+
+	#Jr_10_Pro_Xe .sec5_content_US{
+		margin-top: 3%;
+	}*/
+
+	#Jr_10_Pro_Xe .jr10proxe_hide{
+		display: none;
+	}
+
+	#Jr_10_Pro_Xe .jr10proxe_show{
+		display: block;
+	}
+
+	#Jr_10_Pro_Xe .learn_more{
+		color: black!important;
+	}
+
+	#Jr_10_Pro_Xe .learn_more:hover{
+		text-decoration: underline!important;
+		cursor: pointer;
+	}
+
+	@media screen and (max-width: 1199px){
+		#Jr_10_Pro_Xe .sec4_mt{
+			margin-top: 0;
+		}
+	}
+
+
+	@media screen and (max-width: 1024px){
+		#Jr_10_Pro_Xe .sec2_img{
+			padding-top: 50px;
+		}
+
+		#Jr_10_Pro_Xe .sec2_bg{
+			height: auto;
+		}
+	}
+
+	@media screen and (max-width: 991px){
+		#Jr_10_Pro_Xe .ml{
+			margin-left: 3rem;
+		}
+
+		#Jr_10_Pro_Xe .sec3_md_Img{
+			margin-top: 100px;
+		}
+
+		/*#Jr_10_Pro_Xe .sec5_content_US{
+			margin-top: 0%;
+		}*/
+	}
+
+	@media screen and (max-width: 768px){
+		#Jr_10_Pro_Xe .sec2_content{
+			margin: 50px 0;
+		}
+
+		#Jr_10_Pro_Xe .sec2_img{
+			margin: 5% 0 5% 5%;
+			padding-bottom: 50px;
+		}
+
+		/*#Jr_10_Pro_Xe .sec5_content_JP{
+			margin-top: 2%;
+		}*/
+	}
+
+	@media screen and (max-width: 767px){
+		#Jr_10_Pro_Xe .row{
+			margin: 0%;
+		}
+
+		#Jr_10_Pro_Xe .my-col-12{
+			padding: 0!important;
+		}
+
+		#Jr_10_Pro_Xe h4{
+			font-size: 1.4rem;
+		}
+
+		#Jr_10_Pro_Xe .ml{
+			margin-left: 0rem;
+		}
+
+		#Jr_10_Pro_Xe .sec2_bg{
+			background: linear-gradient(to bottom, #3b3b3b 0%, #535353 40%, #595959 100%)!important;
+			padding: 5% 5%;
+		}
+		
+		#Jr_10_Pro_Xe .sec2_content{
+			margin: 40px 0;
+		}
+	}
+
+/*-----------------------------------
+da Vinci da_vinci_super demo
+-----------------------------------*/
+	#product_dvc_super_V2 .sec2 .container{
+		background: linear-gradient(to top, rgba(224,224,224,0.2) 0%, rgba(224,224,224,1) 100%)
+	}
+
+	#product_dvc_super_V2 .sec1Content{
+		position: relative;
+		right: 5%;
+		top: 30px;
+		height: 400px;
+		background: rgba(255, 255, 255, 0.1);
+	}
+
+	#product_dvc_super_V2 .text-light{
+		font-size: 0.8rem!important;
+		opacity: 0.5!important;
+	}
+
+	#product_dvc_super_V2 .value{
+		font-size: 1.2rem;
+	}
+
+	#product_dvc_super_V2 .bg-secondary{
+		background: rgba(0, 0, 0, 0.2)!important;
+	}
+
+	#product_dvc_super_V2 .sec1 .container{
+		background: url('https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/product_page/da_vinci_superV2_sec1_bg.png');
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+
+	#product_dvc_super_V2 .sec2Content{
+		position: absolute;
+		/*left: 5%;*/
+		max-width: 560px!important;
+		margin-left: 3rem;
+	}
+
+	#product_dvc_super_V2 .sec4 .sec4Demo:before{
+		content: url('https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/product_page/da_vinci_superV2_Img4.png');
+		position: absolute;
+		top: -30px;
+		left: 100px;
+	}
+
+	
+
+
+
+
+
+
+
+
+	@media screen and (max-width: 1199px){
+		#product_dvc_super_V2 .sec1Content{
+			right: 6%;
+			top: -30px;
+		}
+
+		#product_dvc_super_V2 .sec2Content{
+			position: absolute;
+			max-width: 450px!important;
+		}
+	}
+
+	@media screen and (max-width: 991px){
+		#product_dvc_super_V2 .sec1Content{
+			/*right: 6%;
+			top: -30px;
+			height: 400px;*/
+		}
+		
+		#product_dvc_super_V2 .sec2Content{
+			position: static;
+			margin-right: 12px;
+		}
+
+		#product_dvc_super_V2 .sec1Content{
+			margin: 0 auto;
+		}
+
+		#product_dvc_super_V2 .sec4 .sec4Demo:before{
+			display: none;
+		}
+
+		#product_dvc_super_V2 .position-mobile-st{
+			position: static;
+		}
+	}
+	@media screen and (max-width: 768px){
+		#product_dvc_super_V2 .sec2Content{
+			margin-left: 0;
+			margin-right: 3rem;
+		}
+	}
+
+
+	@media screen and (max-width: 767px){
+		#product_dvc_super_V2 .sec1Content{
+			position: static;
+			top: 0;
+			right: 0;
+			margin: 0 auto;
+		}
+
+		#product_dvc_super_V2 .sec2Content{
+			margin-right: 0;
+		}
+
+		#product_dvc_super_V2 .position-mobile-st{
+			padding-left: 0!important;
+			padding-right: 0!important;
+		}
+
+		
+	}
+
+/*-----------------------------------
+da Vinci da_vinci_super
+-----------------------------------*/
+	#product_dvc_super .sec1 .container{
+		/*background: linear-gradient(to top, rgba(224,224,224,0.2) 0%, rgba(224,224,224,1) 100%)*/
+	}
+
+	#product_dvc_super .sec1Content{
+		position: relative;
+		right: 5%;
+		top: 30px;
+		height: 400px;
+		background: rgba(255, 255, 255, 0.1);
+	}
+
+	#product_dvc_super .text-light{
+		font-size: 0.8rem!important;
+		opacity: 0.5!important;
+	}
+
+	#product_dvc_super .value{
+		font-size: 1.2rem;
+	}
+
+	#product_dvc_super .bg-secondary{
+		background: rgba(0, 0, 0, 0.2)!important;
+	}
+
+	#product_dvc_super .sec2 .container{
+		background: url('https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/product_page/da_vinci_superV2_sec1_bg.png');
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+
+	#product_dvc_super .sec2Content{
+		position: absolute;
+		/*left: 5%;*/
+		max-width: 560px!important;
+		margin-left: 3rem;
+	}
+
+	#product_dvc_super .sec4 .sec4Demo:before{
+		content: url('https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/product_page/da_vinci_superV2_Img4.png');
+		position: absolute;
+		top: -30px;
+		left: 100px;
+	}
+
+	
+
+
+
+
+
+
+
+
+	@media screen and (max-width: 1199px){
+		#product_dvc_super .sec1Content{
+			right: 6%;
+			top: -30px;
+		}
+
+		#product_dvc_super .sec2Content{
+			position: absolute;
+			max-width: 450px!important;
+		}
+	}
+
+	@media screen and (max-width: 991px){
+		#product_dvc_super .sec1Content{
+			/*right: 6%;
+			top: -30px;
+			height: 400px;*/
+		}
+		
+		#product_dvc_super .sec2Content{
+			position: static;
+			margin-right: 12px;
+		}
+
+		#product_dvc_super .sec1Content{
+			margin: 0 auto;
+		}
+
+		#product_dvc_super .sec4 .sec4Demo:before{
+			display: none;
+		}
+
+		#product_dvc_super .position-mobile-st{
+			position: static;
+		}
+	}
+	@media screen and (max-width: 768px){
+		#product_dvc_super .sec2Content{
+			margin-left: 0;
+			margin-right: 3rem;
+		}
+	}
+
+
+	@media screen and (max-width: 767px){
+		#product_dvc_super .sec1Content{
+			position: static;
+			top: 0;
+			right: 0;
+			margin: 0 auto;
+		}
+
+		#product_dvc_super .sec2Content{
+			margin-right: 0;
+		}
+
+		#product_dvc_super .position-mobile-st{
+			padding-left: 0!important;
+			padding-right: 0!important;
+		}
+
+		
+	}
+
+/*-----------------------------------
+雷雕耗材說明注意事項
+-----------------------------------*/
+	.popover{
+		width: 100%!important;
+		max-width: 400px!important;
+	}
+
+	.instuctions{
+		width: 180px;
+		padding: 5px 0;
+		cursor: pointer;
+	}
+
+	.instuctions_TW{
+		width: 140px;
+		padding: 5px 0;
+		cursor: pointer;
+	}
+
+	.instuctions_IT{
+		width: 250px;
+		padding: 5px 0;
+		cursor: pointer;
+	}
+
+/*-----------------------------------
+XYZ官網3-5產品獨立自編區
+-----------------------------------*/
+
+	/*共用Style*/
+		.PDEDIT{
+		    padding-bottom: 10px;
+		}
+
+
+
+	/*NFC*/
+		#NFC .container{
+			background-color: #f7f7f7;
+			padding: 10%;
+		}
+
+		#NFC .NFCImg{
+			line-height: 153px;
+		}
+
+
+
+	/*OpenSmartTag*/
+		#OpenSmartTag .container{
+				width: 100%;
+				background: url('https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/product_page/Open_smart_tag_1_bg_lg.jpg') no-repeat;
+				background-size: cover;
+				background-position: -50px 0;
+				background-repeat: no-repeat;
+		}
+			
+		.webp	#OpenSmartTag .container{
+				background-image: url('https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/product_page/Open_smart_tag_1_bg_lg.webp');
+		}
+
+		.no-webp #OpenSmartTag .container{
+			background-image: url('https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/product_page/Open_smart_tag_1_bg_lg.jpg');
+		}
+
+	    #OpenSmartTag .widthRu{
+	    	max-width: 68%;
+	    }
+
+		#OpenSmartTag .learnLink{
+		    text-decoration: underline;
+		    color: white;
+		    text-decoration-skip-ink: none;
+		}
+
+		#OpenSmartTag .learnLink:hover{
+		    text-decoration: underline!important;
+		    cursor: pointer;
+		    color: white;
+		}
+
+		@media screen and (max-width: 767px){
+		    #OpenSmartTag .container{
+		        width: 100%;
+		        background: url('https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/product_page/Open_smart_tag_1_bg_sm.jpg') no-repeat;
+		        background-size: cover;
+		    }
+
+		    #OpenSmartTag .widthRu{
+		    	max-width: 100%;
+		    }
+		}
+
+
+
+
+	/*OpenSmartTag 2*/
+		#OpenSmartTag2 .container{
+	        width: 100%;
+	        background: url('https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/product_page/Open_smart_tag_2_bg_lg.jpg') no-repeat;
+	        background-size: cover;
+	        background-position: -50px 0;
+			}
+
+	    #OpenSmartTag2 .widthRu{
+	    	max-width: 68%;
+	    }
+
+		#OpenSmartTag2 .learnLink{
+		    text-decoration: underline;
+		    color: white;
+		    text-decoration-skip-ink: none;
+		}
+
+		#OpenSmartTag2 .learnLink:hover{
+		    text-decoration: underline!important;
+		    cursor: pointer;
+		    color: white;
+		}
+
+		@media screen and (max-width: 767px){
+		    #OpenSmartTag2 .container{
+		        width: 100%;
+		        background: url('https://xyzofficialweb.blob.core.windows.net/xyz-v3/images/product_page/Open_smart_tag_2_bg_sm.jpg') no-repeat;
+		        background-size: cover;
+		    }
+
+		    #OpenSmartTag2 .widthRu{
+		    	max-width: 100%;
+		    }
+		}
+
+
+
+	/*EEProm*/
+		#EEProm .container{
+			background-color: #f7f7f7;
+			padding: 10%;
+		}
+
+		#EEProm .EEPromImg{
+			line-height: 176px;
+		}
+
+	/*openMood*/
+		#openMood .container{
+			background-color: #f7f7f7;
+			padding: 10%;
+		}
+
+/*-----------------------------------
+XYZ官網News區 class="dmt-control-newsContent"
+-----------------------------------*/
+	/*	.dmt-control-newsContent ul, .dmt-control-newsContent li{
+		list-style: disc;
+		list-style-position: inside;
+		padding-left:10px;
+	}*/
+
+	.dmt-control-newsContent div{
+		text-align: justify;
+	}
+
+	@media screen and (max-width: 767px){
+		.dmt-control-newsContent div{
+			text-align: left;
+		}
+	}
+
+/*XYZ官網 recruitment 職缺頁面*/
+	.career-page p {
+		font-size: 1rem;
+		line-height: 1.6;
+		letter-spacing: 0.03rem;
+		margin-bottom: 1rem;
+		color: #34495e;
+	}
+
+	/*.career-page .text-blue{
+		color: #34495e;
+	}*/
+
+	.jobs__title p{
+		font-size: 1rem;
+		line-height: 1.6;
+		letter-spacing: 0.03rem;
+	}
+
+	.job-location{
+		font-weight: bold;
+		color: grey;
+		padding: 10px 0;
+	}
+
+	.job-content-details p{
+		font-size: 1rem;
+		line-height: 1.6;
+		letter-spacing: 0.03rem;
+		margin-bottom: 1rem;
+		color: #34495e;
+	}
+
+	.description-title{
+		font-size: 1rem;
+		font-weight: bold;
+		padding-top: 20px;
+		padding-bottom: 10px;
+		color: #00a8c4;
+	}
+
+	.job-content-details ul{
+		list-style-type: none;
+	}
+
+	.job-content-details ul li{
+		line-height: 1.6;
+		font-size: 1rem;
+		position: relative;
+		margin-left: 20px;
+		color: #34495e;
+	}
+
+	.job-content-details ul li:before{
+		content: '\00af';
+		position: absolute;
+		top: 7px;
+		left: -20px;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
